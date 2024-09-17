@@ -1,0 +1,36 @@
+rajput@vihlc1737[FAST3_Python/v4]{master} make vec
+python python/vector.py
+
+ [PYTHON CODE] :   Testing Basic Python class testing String.i
+
+ [PYTHON CODE] :  ******************************************** Print module  STDLib 
+
+
+ [PYTHON CODE] :   STDLib =   <module 'STDLib' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v4/./generated_files/STDLib.py'>
+
+ [PYTHON CODE] :   type(STDLib)  =   <class 'module'>
+
+ [PYTHON CODE] :   dir(STDLib)  =   ['PrintStr', 'StrTest', 'SwigPyIterator', 'UpdateStr', '_STDLib', '_SwigNonDynamicMeta', '__builtin__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_swig_add_metaclass', '_swig_python_version_info', '_swig_repr', '_swig_setattr_nondynamic_class_variable', '_swig_setattr_nondynamic_instance_variable', 'average', 'changePerlStr', 'changePerlStrPtr', 'cvar', 'fileName', 'half', 'halve_in_place', 'vectord', 'vectori']
+
+ [PYTHON CODE] :  ******************************************** v1 = STDLib.vectori(5) 
+
+
+ [PYTHON CODE] :   v1 =   <STDLib.vectori; proxy of <Swig Object of type 'std::vector< int > *' at 0x7f0a095da9d0> >
+
+ [PYTHON CODE] :   v1.size() =   5
+
+ [PYTHON CODE] :   type(v1)  =   <class 'STDLib.vectori'>
+
+ [PYTHON CODE] :  ******************************************** Print(v1); 
+
+ index= 0 , value = 5 
+ index= 1 , value = 5 
+ index= 2 , value = 5 
+ index= 3 , value = 5 
+ index= 4 , value = 5 
+
+ [PYTHON CODE] :  ******************************************** del v1  
+
+
+ [PYTHON CODE] :  ***********  END OF PROGRAM *********************************
+rajput@vihlc1737[FAST3_Python/v4]{master} 

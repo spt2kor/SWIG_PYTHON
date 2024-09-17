@@ -1,0 +1,308 @@
+///////////////////////////////////
+copied from:  https://bitbucket.vih.infineon.com/projects/DFFA/repos/flow_arch_sandbox/browse/SWIG_tests/README?at=f%2Ffast2_v1
+# Commands to generate the perl module
+
+module unload swig
+module load swig/4.0.1
+
+module unload gcc
+module load gcc/10.3.0
+
+cd src
+swig -c++ -perl TechView.i
+g++ -c `perl -MConfig -e 'print join(" ", @Config{qw(ccflags optimize cccdlflags)}, \ "-I$Config{archlib}/CORE")'` TechView.cpp TechView_wrap.cxx
+g++ -shared TechView.o TechView_wrap.o -o TechView.so -L/opt/perl_5.18.2/linux50_64/lib/CORE -lperl
+
+# At the end you should have a TechView.pm file that can be used in the test_script present in parent directory
+
+
+
+///////////////////////////////////////////////////////////
+/////               SWIG compilation options
+//////////////////////////////////////////////////////////
+
+
+https://www.swig.org/Doc1.3/SWIG.html
+
+5.1 Running SWIG
+    To run SWIG, use the swig command with options options and a filename like this:
+
+    swig [ options ] filename
+
+        -c++                  Enable C++ parsing
+        -Dsymbol              Define a preprocessor symbol
+        -Fstandard            Display error/warning messages in commonly used format
+        -Fmicrosoft           Display error/warning messages in Microsoft format
+        -help                 Display all options
+        -Idir                 Add a directory to the file include path
+        -lfile                Include a SWIG library file.
+        -module name          Set the name of the SWIG module
+        -o outfile            Name of output file
+        -outcurrentdir	      Set default output dir to current dir instead of input file's path
+        -outdir dir           Set language specific files output directory
+        -swiglib              Show location of SWIG library
+        -version              Show SWIG version number
+
+
+Many target languages will also generate proxy class files in the target language. The default output directory for these language specific files is the same directory as the generated C/C++ file. This can be modified using the -outdir option. For example:
+
+    $ swig -c++ -python -outdir pyfiles -o cppfiles/example_wrap.cpp example.i
+
+If the directories cppfiles and pyfiles exist, the following will be generated:
+
+    cppfiles/example_wrap.cpp
+    pyfiles/example.py
+
+If the -outcurrentdir option is used (without -o) then SWIG behaves like a typical C/C++ compiler and the default output directory is then the current directory. Without this option the default output directory is the path to the input file. If -o and -outcurrentdir are used together, -outcurrentdir is effectively ignored as the output directory for the language files is the same directory as the generated C/C++ file if not overidden with -outdir.
+
+============================
+=====================================================================
+                //compilation steps
+=====================================================================
+folder must exist before (generated_files) before runnign swig command
+    swig -c++ -perl -outdir generated_files -o generated_files/SimpleDS_wrap.cpp swig/SimpleDS.i
+output will go to 
+    generated_files/SimpleDS.py
+    generated_files/SimpleDS_wrap.cpp
+=====================================================================
+compile files
+    g++ -c `perl -MConfig -e 'print join(" ", @Config{qw(ccflags optimize cccdlflags)}, \ "-I$Config{archlib}/CORE")'` cpp/SimpleDS.cpp generated_files/SimpleDS_wrap.cxx
+
+    send obj to outdir?  : https://stackoverflow.com/questions/1814270/gcc-g-option-to-place-all-object-files-into-separate-directory
+
+    gcc -c file1.c -o ../builddir/objdir/file1.o
+
+    g++ -c `perl -MConfig -e 'print join(" ", @Config{qw(ccflags optimize cccdlflags)}, \ "-I$Config{archlib}/CORE")'` cpp/SimpleDS.cpp -o generated_files/obj/SimpleDS.o
+
+    compilation error ==> g++: error: SCALAR(0x244ae88): No such file or directory
+
+    g++ -c `perl -MConfig -e 'print join(" ", @Config{qw(ccflags optimize cccdlflags)}, \ "-I$Config{archlib}/CORE")'` generated_files/SimpleDS_wrap.cxx -o generated_files/obj/SimpleDS_wrap.o
+    
+    ===============================================
+    give options directly to g++ => same options used while compiling perl language in this os, using G++, same compilation options used for swig code compilation 
+        -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64
+
+    g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/SimpleDS.cpp -o generated_files/obj/SimpleDS.o
+    
+     g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  generated_files/SimpleDS_wrap.cpp -o generated_files/obj/SimpleDS_wrap.o
+
+       ERROR:
+        generated_files/SimpleDS_wrap.cpp:763:10: fatal error: EXTERN.h: No such file or directory
+        763 | #include "EXTERN.h"
+            |          ^~~~~~~~~~
+        compilation terminated.
+
+        EXTERN.h is available in => /opt/perl_5.18.2/linux50_64/lib/CORE/, need to add as include file path
+
+      g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/perl_5.18.2/linux50_64/lib/CORE/  generated_files/SimpleDS_wrap.cpp -o generated_files/obj/SimpleDS_wrap.o
+
+        =========================
+        current os version check 
+        rajput@vihlc1736[FAST2/v1]{f/fast2_v1} lsb_release -sr
+        7.9
+
+        Config moduel present at => it should be this, used for generating g++ perl code  compilation flags
+            /opt/perl_5.18.2/linux50_64/lib/Config.pm
+                -------------------------------------------------------------
+                # This file was created by configpm when Perl was built. Any changes
+                # made to this file will be lost the next time perl is built.
+
+                # for a description of the variables, please have a look at the
+                # Glossary file, as written in the Porting folder, or use the url:
+                # http://perl5.git.perl.org/perl.git/blob/HEAD:/Porting/Glossary
+
+                package Config;
+                use strict; 
+                -------------------------------------------------------------
+
+                ==================================================
+
+                https://github.com/Perl/perl5/blob/blead/Porting/Glossary
+                This file contains a description of all the shell variables whose value is
+                determined by the Configure script.  Variables intended for use in C
+                programs (e.g. I_UNISTD) are already described in config_h.SH.  [`configpm'
+                generates pod documentation for Config.pm from this file--please try to keep
+                the formatting regular.]
+                ==================================================
+
+        =========================
+    ===========================================================
+    g++ compiler : https://faculty.cs.niu.edu/~mcmahon/CS241/Notes/Unix_Reference/command_gcc.html
+    --------------------
+        rajput@vihlc1736[FAST2/v1]{f/fast2_v1} perl -MConfig -e 'print join(" ", @Config{qw(ccflags optimize cccdlflags)}, \ "-I$Config{archlib}/CORE")'
+        
+        output=>   -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 SCALAR(0x25e6e88)
+    --------------------
+create shared library .so file
+    g++ -shared SimpleDS.o SimpleDS.o -o SimpleDS.so -L/opt/perl_5.18.2/linux50_64/lib/CORE -lperl
+
+    g++ -shared generated_files/obj/SimpleDS.o generated_files/obj/SimpleDS_wrap.o -o perl/SimpleDS.so -L/opt/perl_5.18.2/linux50_64/lib/CORE -lperl
+
+    linker error : 
+            /opt/gcc_10.3.0/linux70_64/bin/ld: cannot find -lifxperl
+            collect2: error: ld returned 1 exit status
+
+    change perl library file name to -lperlifx => refering to libperlifx.so present at location /opt/perl_5.18.2/linux50_64/lib/CORE/libperlifx.so
+
+    rajput@vihlc1736[generated_files/obj]{f/fast2_v1} ll /opt/perl_5.18.2/linux50_64/lib/CORE/libperlifx.so
+    -rwxr-xr-x 1 released released 1.7M Jun 29  2018 /opt/perl_5.18.2/linux50_64/lib/CORE/libperlifx.so
+
+    final working compilation command : for rhe70 os, "cmgit -r camino" goes to rhe70 by default, lperlifx found in rhe70 in this path "-L/opt/perl_5.18.2/linux50_64/lib/CORE -lperlifx"
+
+    g++ -shared generated_files/obj/SimpleDS.o generated_files/obj/SimpleDS_wrap.o -o perl/SimpleDS.so -L/opt/perl_5.18.2/linux50_64/lib/CORE -lperlifx
+
+    to go to rhe80 for dev env.
+    > cmgit -r camino;
+    > bsub -Is -q interactive -R "clearcase && osrel==80" $SHELL
+    other options : osrel==80 , osrel==70 ,osrel==60
+=====================================================================
+                //end of compilation steps
+=====================================================================
+    http://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_node/ld_3.html
+    https://www.man7.org/linux/man-pages/man1/g++.1.html
+    https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html
+    https://bytes.usc.edu/cs104/wiki/gcc/
+
+    
+    
+    g++ -c `perl -MConfig -e 'print join(" ", @Config{qw(ccflags optimize cccdlflags)}, \ "-I$Config{archlib}/CORE")'` cpp/SimpleDS.cpp generated_files/SimpleDS_wrap.cxx
+
+    g++ -c  => only compile and generate .o file
+
+    perl option -M => loading Config.pm module 
+     -[mM][-]module    execute "use/no module..." before executing program 
+    ?? => check list of perl module already loaded? are available to use?
+
+    perl option -e => single line command to execute, no need to give perl file name.
+
+    perl join()
+
+    perl hash option => Options with hash values
+    https://perldoc.perl.org/Getopt::Long#Options-with-hash-values
+        ----------------------------------------
+            If the option destination is a reference to a hash, the option will take, as value, strings of the form key=value. The value will be stored with the specified key in the hash.
+
+            GetOptions ("define=s" => \%defines);
+            Alternatively you can use:
+
+            GetOptions ("define=s%" => \$defines);
+            When used with command line options:
+
+            --define os=linux --define vendor=redhat
+            the hash %defines (or %$defines) will contain two keys, "os" with value "linux" and "vendor" with value "redhat". It is also possible to specify that only integer or floating point numbers are acceptable values. The keys are always taken to be strings.
+        ----------------------------------------
+=========================================================
+perl client code error:
+
+    update @INC path
+    https://stackoverflow.com/questions/841785/how-do-i-include-a-perl-module-thats-in-a-different-directory
+    BEGIN {
+        push ( @INC,"./generated_files/");
+        push ( @INC,"./perl/");
+    }
+    use SimpleDS;
+
+================================================================
+
+    unable to load pi variable 
+        rajput@vihlc1736[FAST2/v1]{f/fast2_v1} perl perl/client.pl
+        Can't load './SimpleDS.so' for module SimpleDS: ./SimpleDS.so: undefined symbol: pi at /opt/perl_5.18.2/linux50_64/lib/DynaLoader.pm line 190.
+        at generated_files/SimpleDS.pm line 11.
+        Compilation failed in require at perl/client.pl line 7.
+        BEGIN failed--compilation aborted at perl/client.pl line 7.
+        rajput@vihlc1736[FAST2/v1]{f/fast2_v1} 
+
+        error logged at line 190 file : /opt/perl_5.18.2/linux50_64/lib/DynaLoader.pm line 190.
+        ----------------------------------------------------
+         # Many dynamic extension loading problems will appear to come from
+        # this section of code: XYZ failed at line 123 of DynaLoader.pm.
+        # Often these errors are actually occurring in the initialisation
+        # C code of the extension XS file. Perl reports the error as being
+        # in this perl code simply because this was the last perl code
+        # it executed.
+
+        my $libref = dl_load_file($file, $module->dl_load_flags) or
+        croak("Can't load '$file' for module $module: ".dl_error());
+        ------------------------------------------------------
+
+    dynaloader 
+    https://www.reddit.com/r/perl/comments/55b15y/what_is_bootstrapping_in_perl/
+
+        package YourPackage;
+        require DynaLoader;
+        @ISA = qw(... DynaLoader ...);
+        __PACKAGE__->bootstrap;
+
+        # optional method for 'global' loading
+        sub dl_load_flags { 0x01 } 
+==========================================================
+#supress g++ compilation warning for SimpleDS_wrap.cpp file
+https://sourcecodeartisan.com/2021/03/06/invalid-suffix-on-literal.html
+    GCC
+    In GCC, the invalid suffix literal message shows as a warning by default. You can eliminate the message with the Wno-literal-suffix flag. For example,
+
+    g++ -std=c++11 -Wno-literal-suffix -c -o test.o test.cpp
+    use -Wno-literal-suffix
+        -------------------------------
+rajput@vihlc1737[FAST2/v1]{f/fast2_v1} g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/perl_5.18.2/linux50_64/lib/CORE/ generated_files/SimpleDS_wrap.cpp -o generated_files/obj/SimpleDS_wrap.o
+In file included from /opt/perl_5.18.2/linux50_64/lib/CORE/perl.h:3476,
+                 from generated_files/SimpleDS_wrap.cpp:764:
+/opt/perl_5.18.2/linux50_64/lib/CORE/pad.h:323:8: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+  323 |        "Pad 0x%"UVxf"[0x%"UVxf"] set_cur    depth=%d\n", \
+      |        ^
+/opt/perl_5.18.2/linux50_64/lib/CORE/pad.h:323:21: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+  323 |        "Pad 0x%"UVxf"[0x%"UVxf"] set_cur    depth=%d\n", \
+      |                     ^
+/opt/perl_5.18.2/linux50_64/lib/CORE/pad.h:341:8: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+  341 |        "Pad 0x%"UVxf"[0x%"UVxf"] save_local\n",  \
+      |        ^
+/opt/perl_5.18.2/linux50_64/lib/CORE/pad.h:341:21: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+  341 |        "Pad 0x%"UVxf"[0x%"UVxf"] save_local\n",  \
+      |                     ^
+/opt/perl_5.18.2/linux50_64/lib/CORE/pad.h:349:8: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+  349 |        "Pad 0x%"UVxf"[0x%"UVxf"] restore_local\n", \
+      |        ^
+/opt/perl_5.18.2/linux50_64/lib/CORE/pad.h:349:21: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+  349 |        "Pad 0x%"UVxf"[0x%"UVxf"] restore_local\n", \
+      |                     ^
+In file included from generated_files/SimpleDS_wrap.cpp:764:
+/opt/perl_5.18.2/linux50_64/lib/CORE/perl.h:4257:8: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+ 4257 |   INIT("Use of uninitialized value%"SVf"%s%s");
+      |        ^
+/opt/perl_5.18.2/linux50_64/lib/CORE/perl.h:4277:8: warning: invalid suffix on literal; C++11 requires a space between literal and string macro [-Wliteral-suffix]
+ 4277 |   INIT("Modification of non-creatable hash value attempted, subscript \"%"SVf"\"");
+      |        ^
+
+#so use this way
+g++ -c -Wno-literal-suffix -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/perl_5.18.2/linux50_64/lib/CORE/  generated_files/SimpleDS_wrap.cpp -o generated_files/obj/SimpleDS_wrap.o
+
+
+===============================================================
+SWIG warning messages:
+http://web.mit.edu/ghudson/trac/src/swig-1.3.25/Doc/Manual/Warnings.html
+
+===============================================================
+
+
+
+FINAL COMPILATION STEPS
+
+cmgit -r camino;   
+cd /home/relman.ivcs/rajput/flow_arch_sandbox/FAST2/v1
+
+module unload swig
+module load swig/4.0.1
+
+module unload gcc
+module load gcc/10.3.0
+
+swig -c++ -perl -outdir generated_files -o generated_files/SimpleDS_wrap.cpp swig/SimpleDS.i
+
+#two stpe compilation
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/SimpleDS.cpp -o generated_files/obj/SimpleDS.o
+g++ -c -Wno-literal-suffix -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/perl_5.18.2/linux50_64/lib/CORE/  generated_files/SimpleDS_wrap.cpp -o generated_files/obj/SimpleDS_wrap.o
+
+g++ -shared generated_files/obj/SimpleDS.o generated_files/obj/SimpleDS_wrap.o -o generated_files/SimpleDS.so -L/opt/perl_5.18.2/linux50_64/lib/CORE -lperlifx
+
+#execute the code
+perl perl/client.pl

@@ -1,0 +1,101 @@
+rajput@vihlc1737[FAST3_Python/v4]{master} make str
+python python/str.py
+
+ [PYTHON CODE] :   Testing Basic Python class testing String.i
+
+ [PYTHON CODE] :  ******************************************** Print module  STDLib 
+
+
+ [PYTHON CODE] :   STDLib =   <module 'STDLib' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v4/./generated_files/STDLib.py'>
+
+ [PYTHON CODE] :   type(STDLib)  =   <class 'module'>
+
+ [PYTHON CODE] :   dir(STDLib)  =   ['PrintStr', 'StrTest', 'UpdateStr', '_STDLib', '_SwigNonDynamicMeta', '__builtin__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_swig_add_metaclass', '_swig_python_version_info', '_swig_repr', '_swig_setattr_nondynamic_class_variable', '_swig_setattr_nondynamic_instance_variable', 'changePerlStr', 'changePerlStrPtr', 'cvar', 'fileName']
+
+ [PYTHON CODE] :  ******************************************** global extern string moduleName;
+
+ [PYTHON CODE] :   STDLib.cvar.moduleName =   STDLib
+
+ [PYTHON CODE] :  ******************************************** static const string fileName = "str.h"; 
+
+ [PYTHON CODE] :   STDLib.cvar.fileName =   str.h
+
+ [PYTHON CODE] :  ******************************************** : string UpdateStr(const string& perltxt );
+
+[C++ Code], [STR]::UpdateStr(), started.
+
+[C++ Code], [STR]::UpdateStr(), , perltxt = %this is a Python String%
+
+[C++ Code], [STR]::UpdateStr(), , cpptxt = {C++ received the $%this is a Python String%}
+
+[C++ Code], [STR]::UpdateStr(),  exited.
+
+ [PYTHON CODE] :   s2 = STDLib.UpdateStr(s1);   {C++ received the $%this is a Python String%}
+
+ [PYTHON CODE] :  ******************************************** : void PrintStr(string perltxt ); 
+
+[C++ Code], [STR]::PrintStr(), started.
+
+[C++ Code], [STR]::PrintStr(), , perltxt = %this is a Python String%
+
+[C++ Code], [STR]::PrintStr(),  exited.
+
+ [PYTHON CODE] :   s2 = STDLib.PrintStr(s1);   None
+
+ [PYTHON CODE] :  ******************************************** : string changePerlStr(string& perltxt );  
+
+[C++ Code], [STR]::changePerlStr(), started.
+
+[C++ Code], [STR]::changePerlStr(), , perltxt = %this is a Python String%
+
+[C++ Code], [STR]::changePerlStr(),  exited.
+
+ [PYTHON CODE] :   s2 = STDLib.changePerlStr(s1);   {C++ received the $%this is a Python String%}
+
+ [PYTHON CODE] :   s1 ;   %this is a Python String%
+
+ [PYTHON CODE] :  ******************************************** : string* changePerlStrPtr(string* perltxt ); 
+
+[C++ Code], [STR]::changePerlStrPtr(), started.
+
+[C++ Code], [STR]::changePerlStrPtr(), , perlstrRef = %this is a Python String%
+
+[C++ Code], [STR]::changePerlStrPtr(),  exited.
+
+ [PYTHON CODE] :   s2 = STDLib.changePerlStrPtr(s1);   {C++ received the $%this is a Python String%}
+
+ [PYTHON CODE] :   s1 ;   %this is a Python String%
+
+ [PYTHON CODE] :  ******************************************** using class STDLib.StrTest() 
+
+[C++ Code], [STR]::StrTest(), started.[0x55d1ed86e470]
+
+[C++ Code], [STR]::StrTest(), , m_perltxt = Default StrTest String
+
+[C++ Code], [STR]::StrTest(), exited.
+
+ [PYTHON CODE] :   r1.m_perltxt =   Default StrTest String
+
+ [PYTHON CODE] :   r1.m_perltxt =   modified python string
+
+ [PYTHON CODE] :   r1.m_fileName =   str.cpp
+
+[C++ Code], [STR]::UpdateStr(), started.[0x55d1ed86e470]
+
+[C++ Code], [STR]::UpdateStr(), , perltxt = Test String from Python
+
+[C++ Code], [STR]::UpdateStr(), , cpptxt =   [C++ received the #Test String from Python ] 
+
+[C++ Code], [STR]::UpdateStr(), exited.
+
+ [PYTHON CODE] :  s3 = r1.UpdateStr("Test String from Python");     [C++ received the #Test String from Python ] 
+----------------------
+
+[C++ Code], [STR]::~StrTest(), started.[0x55d1ed86e470]
+
+[C++ Code], [STR]::~StrTest(), , m_perltxt = Test String from Python
+
+[C++ Code], [STR]::~StrTest(), exited.
+
+ [PYTHON CODE] :  ***********  END OF PROGRAM *********************************
+rajput@vihlc1737[FAST3_Python/v4]{master} 

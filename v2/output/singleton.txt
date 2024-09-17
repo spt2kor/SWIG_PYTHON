@@ -1,0 +1,130 @@
+rajput@vihlc1737[FAST3_Python/v2]{master} make sin
+g++ -shared generated_files/obj/inheritance1_wrap.o generated_files/obj/inheritance1.o -o generated_files/_INHRT.so -L/opt/python/3.11/linux/RHEL70/lib -lpython3.11
+echo "its FAST v2"
+its FAST v2
+python python/singleton.py
+
+[C++ Code], Algo::Algo() started.[0x7feb12ad4980]
+
+[C++ Code], Algo::Algo(), pub = 999
+
+[C++ Code], Algo::Algo() exited.
+
+ [PYTHON CODE] :   Testing Basic Python class Singleton
+
+ [PYTHON CODE] :  ********************************************   SimpleDS.Singleton.count();
+
+[C++ Code], Singleton::count(), started.
+
+[C++ Code], Singleton::count(), , m_count = 0
+
+[C++ Code], Singleton::count(), exited.
+
+ [PYTHON CODE] :   SimpleDS.Singleton.count() =   0
+
+ [PYTHON CODE] :  ********************************************   r1 = SimpleDS.Singleton.getInstance();
+
+[C++ Code], Singleton::getInstance(), started.
+
+[C++ Code], Singleton::Singleton(), started.[0x56005f2a6050]
+
+[C++ Code], Singleton::Singleton(), exited.
+
+[C++ Code], Singleton::getInstance(), exited.
+
+ [PYTHON CODE] :   r1 =   <SimpleDS.Singleton; proxy of <Swig Object of type 'Singleton *' at 0x7feb0b51b0c0> >
+
+ [PYTHON CODE] :   type(r1)=   <class 'SimpleDS.Singleton'>
+
+[C++ Code], Singleton::count(), started.
+
+[C++ Code], Singleton::count(), , m_count = 1
+
+[C++ Code], Singleton::count(), exited.
+
+ [PYTHON CODE] :   SimpleDS.Singleton.count() =   1
+
+ [PYTHON CODE] :  ********************************************   r1.show(); 
+
+[C++ Code], Singleton::show(), started.[0x56005f2a6050]
+
+[C++ Code], Singleton::show(), , height = 20
+
+[C++ Code], Singleton::show(), , width = 20
+
+[C++ Code], Singleton::show(), exited.
+
+ [PYTHON CODE] :  ******************************************** r1.set(104,204) ; 
+
+[C++ Code], Singleton::set(), started.[0x56005f2a6050]
+
+[C++ Code], Singleton::set(), , height = 104
+
+[C++ Code], Singleton::set(), , width = 204
+
+[C++ Code], Singleton::set(), exited.
+
+[C++ Code], Singleton::show(), started.[0x56005f2a6050]
+
+[C++ Code], Singleton::show(), , height = 104
+
+[C++ Code], Singleton::show(), , width = 204
+
+[C++ Code], Singleton::show(), exited.
+
+ [PYTHON CODE] :  ********************************************   r2 = SimpleDS.Singleton.getInstance();
+
+[C++ Code], Singleton::getInstance(), started.
+
+[C++ Code], Singleton::getInstance(), exited.
+
+ [PYTHON CODE] :   r2 =   <SimpleDS.Singleton; proxy of <Swig Object of type 'Singleton *' at 0x7feb0b51ac10> >
+
+ [PYTHON CODE] :   type(r2)=   <class 'SimpleDS.Singleton'>
+
+[C++ Code], Singleton::count(), started.
+
+[C++ Code], Singleton::count(), , m_count = 2
+
+[C++ Code], Singleton::count(), exited.
+
+ [PYTHON CODE] :   SimpleDS.Singleton.count() =   2
+
+ [PYTHON CODE] :  ********************************************   r2.show(); 
+
+[C++ Code], Singleton::show(), started.[0x56005f2a6050]
+
+[C++ Code], Singleton::show(), , height = 104
+
+[C++ Code], Singleton::show(), , width = 204
+
+[C++ Code], Singleton::show(), exited.
+
+ [PYTHON CODE] :  ********************************************   r2 = SimpleDS.Singleton.destroyInstance();
+
+[C++ Code], Singleton::destroyInstance(), started.
+
+[C++ Code], Singleton::~Singleton(), started.[0x56005f2a6050]
+
+[C++ Code], Singleton::~Singleton(), exited.
+
+[C++ Code], Singleton::destroyInstance(), exited.
+
+[C++ Code], Singleton::count(), started.
+
+[C++ Code], Singleton::count(), , m_count = 0
+
+[C++ Code], Singleton::count(), exited.
+
+ [PYTHON CODE] :   SimpleDS.Singleton.count() =   0
+
+ [PYTHON CODE] :  ******************************************** Print using del r1, call DTOR;
+
+ [PYTHON CODE] :  ***********  END OF PROGRAM *********************************
+
+[C++ Code], Algo::~Algo() started.[0x7feb12ad4980]
+
+[C++ Code], Algo::~Algo(), pub = 999
+
+[C++ Code], Algo::~Algo() exited.
+rajput@vihlc1737[FAST3_Python/v2]{master} 

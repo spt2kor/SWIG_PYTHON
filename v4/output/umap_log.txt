@@ -1,0 +1,198 @@
+
+rajput@vihlc1771[FAST2/v4]{master} make clean
+rm -f generated_files/obj/umap.o generated_files/obj/map.o generated_files/obj/vect.o generated_files/obj/str.o 
+rm -f generated_files/STDLib.so generated_files/STDLib_wrap.cpp generated_files/STDLib.pm generated_files/obj/STDLib_wrap.o
+rajput@vihlc1771[FAST2/v4]{master} make umap
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/map.cpp -o generated_files/obj/map.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/vect.cpp -o generated_files/obj/vect.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/str.cpp -o generated_files/obj/str.o
+swig -c++ -perl -outdir generated_files -o generated_files/STDLib_wrap.cpp swig/STDLib.i
+swig/STDLib.i:31: Error: Unable to find 'std_unordered_map.i'
+make: *** [generated_files/STDLib_wrap.cpp] Error 1
+rajput@vihlc1771[FAST2/v4]{master} 
+
+
+
+rajput@vihlc1771[FAST2/v4]{master} module list
+Currently Loaded Modulefiles:
+  1) generic              7) lyx/2.2.4           13) tdrv/devenv         19) camino/devenv
+  2) sysv                 8) texlive/2014        14) exechandler/1.0     20) swig/4.0.1
+  3) tcltk/8.6.5_32-ifx   9) jdk/8               15) dmsystem4flow/1.0   21) gcc/10.3.0
+  4) cmgit/2.16          10) antlr/2.7.7.1       16) statpro/1.0         22) vscode/1.81.1
+  5) lsf/10.1.0          11) boost/1.52.0        17) tmpspace/1.0
+  6) git4camino/2.26.2   12) perl/5.18.2_64      18) kernel/devenv
+rajput@vihlc1771[FAST2/v4]{master} module avail swig/4.0.1
+
+--------------------------------------------- /opt/modulefiles/prog ---------------------------------------------
+swig/4.0.1
+rajput@vihlc1771[FAST2/v4]{master} module show swig/4.0.1
+-------------------------------------------------------------------
+/opt/modulefiles/prog/swig/4.0.1:
+
+conflict	 swig 
+prepend-path	 PATH /opt/swig/4.0.1/linux70_64/bin 
+append-path	 MANPATH /opt/swig/4.0.1/linux70_64/man 
+-------------------------------------------------------------------
+
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/modulefiles/prog/swig/4.0.1
+-rw-r--r-- 1 hwadm modadm 1.4K Feb  7  2023 /opt/modulefiles/prog/swig/4.0.1
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/modulefiles/prog/swig/
+total 76K
+drwxr-sr-x   2 hwadm  modadm 4.0K Feb  7  2023 .
+drwxrwsr-x 101 locadm modadm  12K Aug  2 14:42 ..
+-rw-r--r--   1 hwadm  modadm  12K Dec  5  2017 .3.0.12_32.swp
+-rw-r--r--   1 hwadm  modadm  12K Dec  5  2017 .3.0.6_64.swp
+-rw-r--r--   1 hwadm  modadm  451 Jun  6  2003 1.3.19
+-rw-r--r--   1 hwadm  modadm  451 Dec 21  2004 1.3.23
+-rw-r--r--   1 hwadm  modadm  617 May 14  2007 1.3.31
+-rw-r--r--   1 hwadm  modadm  660 Feb 12  2009 1.3.38
+-rw-r--r--   1 hwadm  modadm  432 Dec  5  2017 3.0.12_32
+-rw-r--r--   1 hwadm  modadm  441 Dec  5  2017 3.0.12_64
+-rw-r--r--   1 hwadm  modadm 1.4K Oct 12  2018 3.0.6_32
+-rw-r--r--   1 hwadm  modadm 1.5K Oct 12  2018 3.0.6_64
+-rw-r--r--   1 hwadm  modadm 1.4K Feb  7  2023 4.0.1
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/4.0.1/linux70_64/bin
+total 16M
+drwxr-xr-x 2 hwadm relman 4.0K Jun 12  2020 .
+drwxr-sr-x 4 hwadm relman 4.0K Jun 12  2020 ..
+-rwxr-xr-x 1 hwadm relman 170K Jun 12  2020 ccache-swig
+-rwxr-xr-x 1 hwadm relman  16M Jun 12  2020 swig
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/4.0.1/linux70_64
+total 16K
+drwxr-sr-x 4 hwadm relman 4.0K Jun 12  2020 .
+drwxr-sr-x 5 hwadm relman 4.0K Feb  7  2023 ..
+drwxr-xr-x 2 hwadm relman 4.0K Jun 12  2020 bin
+drwxr-sr-x 3 hwadm relman 4.0K Jun 12  2020 share
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/4.0.1/
+total 20K
+drwxr-sr-x 5 hwadm relman 4.0K Feb  7  2023 .
+drwxrwsr-x 5 hwadm relman 4.0K Jun 12  2020 ..
+drwxr-sr-x 4 hwadm relman 4.0K Jun 12  2020 linux60_64
+drwxr-sr-x 4 hwadm relman 4.0K Jun 12  2020 linux70_64
+drwxr-sr-x 4 hwadm relman 4.0K Feb  7  2023 linux80_64
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/
+total 36K
+drwxrwsr-x   5 hwadm    relman 4.0K Jun 12  2020 .
+drwxr-xr-x 484 root     root      0 Sep  7 11:34 ..
+-rw-r--r--   1 root     root    171 Feb 19  2016 .INFO
+drwxrwxrwx  41 root     root    12K Sep  7 11:07 .snapshot
+-rw-r-----   1 doeringt relman  277 Jul 12  2017 1
+drwxr-sr-x   8 hwadm    relman 4.0K Dec  5  2017 3.0.12
+drwxr-sr-x   4 hwadm    relman 4.0K Feb 23  2016 3.0.6
+drwxr-sr-x   5 hwadm    relman 4.0K Feb  7  2023 4.0.1
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/4.0.1/linux70_64/man
+ls: cannot access /opt/swig/4.0.1/linux70_64/man: No such file or directory
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/4.0.1/linux70_64/
+total 16K
+drwxr-sr-x 4 hwadm relman 4.0K Jun 12  2020 .
+drwxr-sr-x 5 hwadm relman 4.0K Feb  7  2023 ..
+drwxr-xr-x 2 hwadm relman 4.0K Jun 12  2020 bin
+drwxr-sr-x 3 hwadm relman 4.0K Jun 12  2020 share
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/4.0.1/linux70_64/share/
+total 12K
+drwxr-sr-x 3 hwadm relman 4.0K Jun 12  2020 .
+drwxr-sr-x 4 hwadm relman 4.0K Jun 12  2020 ..
+drwxr-sr-x 3 hwadm relman 4.0K Jun 12  2020 swig
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/4.0.1/linux70_64/share/swig/
+total 12K
+drwxr-sr-x  3 hwadm relman 4.0K Jun 12  2020 .
+drwxr-sr-x  3 hwadm relman 4.0K Jun 12  2020 ..
+drwxr-sr-x 22 hwadm relman 4.0K Jun 12  2020 4.0.1
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/4.0.1/linux70_64/share/swig/4.0.1/
+total 308K
+drwxr-sr-x 22 hwadm relman 4.0K Jun 12  2020 .
+drwxr-sr-x  3 hwadm relman 4.0K Jun 12  2020 ..
+-rw-r--r--  1 hwadm relman  717 Jun 12  2020 allkw.swg
+-rw-r--r--  1 hwadm relman  496 Jun 12  2020 attribute.i
+-rw-r--r--  1 hwadm relman 2.6K Jun 12  2020 carrays.i
+-rw-r--r--  1 hwadm relman 2.8K Jun 12  2020 cdata.i
+-rw-r--r--  1 hwadm relman 2.3K Jun 12  2020 cmalloc.i
+-rw-r--r--  1 hwadm relman 6.9K Jun 12  2020 constraints.i
+-rw-r--r--  1 hwadm relman 3.5K Jun 12  2020 cpointer.i
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 csharp
+-rw-r--r--  1 hwadm relman  324 Jun 12  2020 cstring.i
+-rw-r--r--  1 hwadm relman  265 Jun 12  2020 cwstring.i
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 d
+-rw-r--r--  1 hwadm relman  512 Jun 12  2020 director_common.swg
+-rw-r--r--  1 hwadm relman 8.4K Jun 12  2020 exception.i
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 go
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 guile
+-rw-r--r--  1 hwadm relman 2.7K Jun 12  2020 intrusive_ptr.i
+-rw-r--r--  1 hwadm relman 2.4K Jun 12  2020 inttypes.i
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 java
+drwxr-sr-x  4 hwadm relman 4.0K Jun 12  2020 javascript
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 lua
+-rw-r--r--  1 hwadm relman 2.1K Jun 12  2020 math.i
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 mzscheme
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 ocaml
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 octave
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 perl5
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 php
+-rw-r--r--  1 hwadm relman  294 Jun 12  2020 pointer.i
+drwxr-sr-x  2 hwadm relman 8.0K Jun 12  2020 python
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 r
+drwxr-sr-x  2 hwadm relman 8.0K Jun 12  2020 ruby
+-rw-r--r--  1 hwadm relman 1.3K Jun 12  2020 runtime.swg
+drwxr-sr-x  2 hwadm relman 8.0K Jun 12  2020 scilab
+-rw-r--r--  1 hwadm relman 2.6K Jun 12  2020 shared_ptr.i
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 std
+-rw-r--r--  1 hwadm relman 2.1K Jun 12  2020 std_except.i
+-rw-r--r--  1 hwadm relman 2.4K Jun 12  2020 stdint.i
+-rw-r--r--  1 hwadm relman  249 Jun 12  2020 stl.i
+-rw-r--r--  1 hwadm relman  25K Jun 12  2020 swig.swg
+-rw-r--r--  1 hwadm relman 1.6K Jun 12  2020 swigarch.i
+-rw-r--r--  1 hwadm relman  499 Jun 12  2020 swigerrors.swg
+-rw-r--r--  1 hwadm relman 2.1K Jun 12  2020 swigfragments.swg
+-rw-r--r--  1 hwadm relman 7.9K Jun 12  2020 swiginit.swg
+-rw-r--r--  1 hwadm relman 3.8K Jun 12  2020 swiglabels.swg
+-rw-r--r--  1 hwadm relman  256 Jun 12  2020 swigrun.i
+-rw-r--r--  1 hwadm relman  17K Jun 12  2020 swigrun.swg
+-rw-r--r--  1 hwadm relman  15K Jun 12  2020 swigwarn.swg
+-rw-r--r--  1 hwadm relman 7.0K Jun 12  2020 swigwarnings.swg
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 tcl
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 typemaps
+-rw-r--r--  1 hwadm relman  309 Jun 12  2020 wchar.i
+-rw-r--r--  1 hwadm relman 4.1K Jun 12  2020 windows.i
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 xml
+rajput@vihlc1771[FAST2/v4]{master} ll /opt/swig/4.0.1/linux70_64/share/swig/4.0.1/perl5/
+total 184K
+drwxr-sr-x  2 hwadm relman 4.0K Jun 12  2020 .
+drwxr-sr-x 22 hwadm relman 4.0K Jun 12  2020 ..
+-rw-r--r--  1 hwadm relman  688 Jun 12  2020 Makefile.pl
+-rw-r--r--  1 hwadm relman   34 Jun 12  2020 attribute.i
+-rw-r--r--  1 hwadm relman   33 Jun 12  2020 carrays.i
+-rw-r--r--  1 hwadm relman   30 Jun 12  2020 cdata.i
+-rw-r--r--  1 hwadm relman   32 Jun 12  2020 cmalloc.i
+-rw-r--r--  1 hwadm relman   33 Jun 12  2020 cpointer.i
+-rw-r--r--  1 hwadm relman   32 Jun 12  2020 cstring.i
+-rw-r--r--  1 hwadm relman 7.1K Jun 12  2020 director.swg
+-rw-r--r--  1 hwadm relman  138 Jun 12  2020 exception.i
+-rw-r--r--  1 hwadm relman   32 Jun 12  2020 factory.i
+-rw-r--r--  1 hwadm relman 1.6K Jun 12  2020 noembed.h
+-rw-r--r--  1 hwadm relman 1.5K Jun 12  2020 perl5.swg
+-rw-r--r--  1 hwadm relman  871 Jun 12  2020 perlerrors.swg
+-rw-r--r--  1 hwadm relman  556 Jun 12  2020 perlfragments.swg
+-rw-r--r--  1 hwadm relman 2.6K Jun 12  2020 perlhead.swg
+-rw-r--r--  1 hwadm relman 2.0K Jun 12  2020 perlinit.swg
+-rw-r--r--  1 hwadm relman 3.8K Jun 12  2020 perlkw.swg
+-rw-r--r--  1 hwadm relman   36 Jun 12  2020 perlmacros.swg
+-rw-r--r--  1 hwadm relman 2.0K Jun 12  2020 perlmain.i
+-rw-r--r--  1 hwadm relman 1.9K Jun 12  2020 perlopers.swg
+-rw-r--r--  1 hwadm relman 8.2K Jun 12  2020 perlprimtypes.swg
+-rw-r--r--  1 hwadm relman  15K Jun 12  2020 perlrun.swg
+-rw-r--r--  1 hwadm relman  326 Jun 12  2020 perlruntime.swg
+-rw-r--r--  1 hwadm relman 1.4K Jun 12  2020 perlstrings.swg
+-rw-r--r--  1 hwadm relman 3.0K Jun 12  2020 perltypemaps.swg
+-rw-r--r--  1 hwadm relman   36 Jun 12  2020 perluserdir.swg
+-rw-r--r--  1 hwadm relman 7.1K Jun 12  2020 reference.i
+-rw-r--r--  1 hwadm relman  654 Jun 12  2020 std_common.i
+-rw-r--r--  1 hwadm relman   28 Jun 12  2020 std_deque.i
+-rw-r--r--  1 hwadm relman   35 Jun 12  2020 std_except.i
+-rw-r--r--  1 hwadm relman  15K Jun 12  2020 std_list.i
+-rw-r--r--  1 hwadm relman 2.6K Jun 12  2020 std_map.i
+-rw-r--r--  1 hwadm relman  773 Jun 12  2020 std_pair.i
+-rw-r--r--  1 hwadm relman   62 Jun 12  2020 std_string.i
+-rw-r--r--  1 hwadm relman  23K Jun 12  2020 std_vector.i
+-rw-r--r--  1 hwadm relman  291 Jun 12  2020 stl.i
+-rw-r--r--  1 hwadm relman  13K Jun 12  2020 typemaps.i
+rajput@vihlc1771[FAST2/v4]{master} 

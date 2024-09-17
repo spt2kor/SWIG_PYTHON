@@ -1,0 +1,148 @@
+rajput@vihlc1737[FAST3_Python/v2]{master} make clean
+rm -f generated_files/obj/Pointer1.o generated_files/obj/Singleton.o generated_files/obj/Pointer.o generated_files/obj/Shape.o generated_files/obj/SimpleDS.o  generated_files/obj/DataTypes.o  
+rm -f generated_files/obj/SimpleDS_wrap.o generated_files/_SimpleDS.so generated_files/SimpleDS_wrap.cpp generated_files/SimpleDS.py
+rm -f generated_files/obj/inheritance1.o
+rm -f generated_files/INHRT.so generated_files/inheritance1_wrap.cpp generated_files/obj/inheritance1_wrap.o generated_files/inheritance1.pm 
+rajput@vihlc1737[FAST3_Python/v2]{master} make inh1
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/DataTypes.cpp -o generated_files/obj/DataTypes.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/Shape.cpp -o generated_files/obj/Shape.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/SimpleDS.cpp -o generated_files/obj/SimpleDS.o
+cpp/SimpleDS.cpp: In constructor 'Rectangle::Rectangle(int, int)':
+cpp/SimpleDS.cpp:37:53: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+   37 | Rectangle::Rectangle(int height, int width) : Shape("Default-Rect"), height(height), width(width)
+      |                                                     ^~~~~~~~~~~~~~
+swig -c++ -python  -outdir generated_files -o generated_files/SimpleDS_wrap.cpp swig/SimpleDS.i
+swig/../cpp/Shape.h:20: Warning 362: operator= ignored
+swig/../cpp/SimpleDS.h:32: Warning 362: operator= ignored
+swig/../cpp/DataTypes.h:31: Warning 362: operator= ignored
+swig/../cpp/DataTypes.h:35: Warning 314: 'print' is a python keyword, renaming to '_print'
+swig/../cpp/DataTypes.h:43: Warning 454: Setting a pointer/reference variable may leak memory.
+swig/../cpp/DataTypes.h:45: Warning 451: Setting a const char * variable may leak memory.
+g++ -c -Wno-literal-suffix -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/python/3.11/linux/RHEL70/include/python3.11/ generated_files/SimpleDS_wrap.cpp -I cpp/ -o generated_files/obj/SimpleDS_wrap.o
+g++ -shared generated_files/obj/Shape.o generated_files/obj/DataTypes.o generated_files/obj/SimpleDS.o generated_files/obj/SimpleDS_wrap.o -o generated_files/_SimpleDS.so -L/opt/python/3.11/linux/RHEL70/lib -lpython3.11
+echo "its FAST3 Python v2"
+its FAST3 Python v2
+python python/inheritance1.py
+
+[C++ Code], Algo::Algo() started.[0x7f6f14a86670]
+
+[C++ Code], Algo::Algo(), pub = 999
+
+[C++ Code], Algo::Algo() exited.
+
+ [PYTHON CODE] :   Testing Basic Python class Inheritance 1
+
+ [PYTHON CODE] :  ********************************************  r1 = SimpleDS.Rectangle();
+
+[C++ Code], Shape::Shape(char* ptr)() started.[0x55953d3a0dd0]
+
+[C++ Code], Shape::setName() started.[0x55953d3a0dd0]
+
+[C++ Code], Shape:: input name = {Rect1}, (void*)(ptr) = 0x55953d3a0db0
+
+[C++ Code], Shape:: new setName is = Rect1, (void*)(name) = 0x55953d3a0df0
+
+[C++ Code], Shape::setName() exited.
+
+[C++ Code], Shape::Shape() exited.
+
+[C++ Code], Rectangle::Rectangle() started.[0x55953d3a0dd0]
+
+[C++ Code], Rectangle::Rectangle() exited.
+
+ [PYTHON CODE] :   r1 =   <SimpleDS.Rectangle; proxy of <Swig Object of type 'Rectangle *' at 0x7f6f0d4fcfc0> >
+
+ [PYTHON CODE] :   type(r1)=   <class 'SimpleDS.Rectangle'>
+
+ [PYTHON CODE] :  ******************************************** only derived func:non-virtual:  r1.area();
+
+[C++ Code], Rectangle::area() started.[0x55953d3a0dd0]
+
+[C++ Code], Rectangle::area() exited.
+
+ [PYTHON CODE] :   r1.area() =   200
+
+ [PYTHON CODE] :  ******************************************** overriden func:  r1.show();
+
+[C++ Code], Rectangle::show() started.[0x55953d3a0dd0]
+
+[C++ Code], Shape::show() started.[0x55953d3a0dd0]
+
+[C++ Code], Shape::show(), Shape's name =[Rect1]
+
+[C++ Code], Shape::show() exited.
+
+[C++ Code], Rectangle::show(), Rectangle details: height : 10, width : 20
+
+[C++ Code], Rectangle::show() exited.
+
+ [PYTHON CODE] :   r1.show() =   None
+
+ [PYTHON CODE] :  ******************************************** stati overriden func: r1.classInfo();
+
+[C++ Code], Rectangle::classInfo() started.
+
+[C++ Code], Shape::classInfo() started.
+
+[C++ Code], Shape::class details: 5Shape
+
+[C++ Code], Shape::classInfo() exited.
+
+[C++ Code], Rectangle::class details: 9Rectangle
+
+[C++ Code], Rectangle::classInfo() exited.
+
+ [PYTHON CODE] :   r1.classInfo() =   True
+
+[C++ Code], Rectangle::classInfo() started.
+
+[C++ Code], Shape::classInfo() started.
+
+[C++ Code], Shape::class details: 5Shape
+
+[C++ Code], Shape::classInfo() exited.
+
+[C++ Code], Rectangle::class details: 9Rectangle
+
+[C++ Code], Rectangle::classInfo() exited.
+
+ [PYTHON CODE] :   SimpleDS.Rectangle.classInfo() =   True
+
+ [PYTHON CODE] :  ******************************************** check ownership : r1.thisown;
+
+ [PYTHON CODE] :   r1.thisown =   True
+
+ [PYTHON CODE] :  ******************************************** calling non-virtual func, only in base : r1.getName();
+
+[C++ Code], Shape::getName() started.[0x55953d3a0dd0]
+
+[C++ Code], Shape::getName(), Shape's name =[Rect1]
+
+[C++ Code], Shape::getName() exited.
+
+ [PYTHON CODE] :   r1.getName() =   Rect1
+
+ [PYTHON CODE] :  ******************************************** calling non-virtual func, only in base : r1.privateFunc();
+
+ [PYTHON CODE] :  ******************************************** calling non-virtual func, only in base : r1.protctedFunc();
+
+ [PYTHON CODE] :  ******************************************** Print using del r1, call DTOR;
+
+[C++ Code], Rectangle::~Rectangle() started.[0x55953d3a0dd0]
+
+[C++ Code], Rectangle::~Rectangle() exited.
+
+[C++ Code], Shape::~Shape() started.[0x55953d3a0dd0]
+
+[C++ Code], Shape::~Shape(), Shape's name =[Rect1]
+
+[C++ Code], Shape::~Shape() exited.
+
+ [PYTHON CODE] :  ***********  END OF PROGRAM *********************************
+
+[C++ Code], Algo::~Algo() started.[0x7f6f14a86670]
+
+[C++ Code], Algo::~Algo(), pub = 999
+
+[C++ Code], Algo::~Algo() exited.
+rajput@vihlc1737[FAST3_Python/v2]{master} 

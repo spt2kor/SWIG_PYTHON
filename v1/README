@@ -1,0 +1,93 @@
+# test code perl perl/client.pl has these features tested
+==================================================================================
+    exporting C++ global variables							[DONE]
+	exporting C++ global functions							[DONE]
+	exporting C++ Macros									[DONE]
+==================================================================================
+
+#FINAL COMPILATION STEPS
+==================================================================================
+module load cmgit;
+cmgit -r camino;   
+cd /home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1
+
+module unload swig
+module load swig/4.0.1
+
+module unload gcc
+module load gcc/10.3.0
+
+module unload python
+module load python/3.11
+
+module load vscode;
+code ./../FAST3_Python.code-workspace &
+
+
+==================================================================================
+	PERL
+==================================================================================
+
+swig -c++ -perl -outdir generated_files -o generated_files/SimpleDS_wrap.cpp swig/SimpleDS.i
+
+#two stpe compilation
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/SimpleDS.cpp -o generated_files/obj/SimpleDS.o
+g++ -c -Wno-literal-suffix -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/perl_5.18.2/linux50_64/lib/CORE/  generated_files/SimpleDS_wrap.cpp -o generated_files/obj/SimpleDS_wrap.o
+
+g++ -shared generated_files/obj/SimpleDS.o generated_files/obj/SimpleDS_wrap.o -o generated_files/SimpleDS.so -L/opt/perl_5.18.2/linux50_64/lib/CORE -lperlifx
+
+#execute the code
+perl perl/client.pl
+==================================================================================
+
+==================================================================================
+
+
+SWIG (Simplified Wrapper and Interface Generator) can be used to create Python bindings for C++ libraries. Here are the steps to compile C++ code for Python using SWIG:
+
+
+Write your C++ code that you want to use in Python and save it in a file with a .cpp extension.
+
+Write a SWIG interface file (with a .i extension) that declares the functions you want to export to Python. 
+	This file should also include #include directives that specify the headers needed by your C++ code.
+
+Run the SWIG command to generate a Python extension module. This command creates wrapper code that connects your C++ code to Python. 
+	The command takes the form: swig -c++ -python example.i
+
+Compile the wrapper code using a C or C++ compiler. 
+	The command takes the form: g++ -fPIC -c example.cpp example_wrap.cxx -I/usr/include/python3.8
+
+Link the object files into a shared library. 
+	The command takes the form: g++ -shared example.o example_wrap.o -o _example.so
+
+	==================================================================================
+
+Here's an example SWIG interface file:
+
+
+Copy Code
+%module example
+%{
+#include "example.h"
+%}
+
+%include "example.h"
+
+In this example, example.h is the header file for the C++ code you want to export, and example is the name of the Python module that will be generated.
+
+
+Once you have compiled the C++ code into a shared library, you can import it in Python using the import statement. For example:
+
+
+python
+Copy Code
+import example
+
+result = example.add(2, 3)
+print(result)
+
+This would call the add function in your C++ code, which would return 5, and print it to the console.
+
+
+Note that the exact steps for compiling C++ code with SWIG may vary depending on your platform and development environment. Please refer to the SWIG documentation for more information.
+==================================================================================

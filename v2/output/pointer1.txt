@@ -1,0 +1,102 @@
+rajput@vihlc1737[FAST3_Python/v2]{master} 
+rajput@vihlc1737[FAST3_Python/v2]{master} make clean
+rm -f generated_files/obj/Pointer1.o generated_files/obj/Singleton.o generated_files/obj/Pointer.o generated_files/obj/Shape.o generated_files/obj/SimpleDS.o  generated_files/obj/DataTypes.o  
+rm -f generated_files/obj/SimpleDS_wrap.o generated_files/_SimpleDS.so generated_files/SimpleDS_wrap.cpp generated_files/SimpleDS.py
+rm -f generated_files/obj/inheritance1.o
+rm -f generated_files/INHRT.so generated_files/inheritance1_wrap.cpp generated_files/obj/inheritance1_wrap.o generated_files/inheritance1.pm 
+rajput@vihlc1737[FAST3_Python/v2]{master} make ptr1
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/Pointer.cpp -o generated_files/obj/Pointer.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/DataTypes.cpp -o generated_files/obj/DataTypes.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/Shape.cpp -o generated_files/obj/Shape.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/SimpleDS.cpp -o generated_files/obj/SimpleDS.o
+cpp/SimpleDS.cpp: In constructor 'Rectangle::Rectangle(int, int)':
+cpp/SimpleDS.cpp:37:53: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+   37 | Rectangle::Rectangle(int height, int width) : Shape("Default-Rect"), height(height), width(width)
+      |                                                     ^~~~~~~~~~~~~~
+swig -c++ -python  -outdir generated_files -o generated_files/SimpleDS_wrap.cpp swig/SimpleDS.i
+swig/../cpp/Shape.h:20: Warning 362: operator= ignored
+swig/../cpp/SimpleDS.h:32: Warning 362: operator= ignored
+swig/../cpp/DataTypes.h:31: Warning 362: operator= ignored
+swig/../cpp/DataTypes.h:35: Warning 314: 'print' is a python keyword, renaming to '_print'
+swig/../cpp/DataTypes.h:43: Warning 454: Setting a pointer/reference variable may leak memory.
+swig/../cpp/DataTypes.h:45: Warning 451: Setting a const char * variable may leak memory.
+g++ -c -Wno-literal-suffix -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/python/3.11/linux/RHEL70/include/python3.11/ generated_files/SimpleDS_wrap.cpp -I cpp/ -o generated_files/obj/SimpleDS_wrap.o
+g++ -shared generated_files/obj/Pointer.o generated_files/obj/Shape.o generated_files/obj/DataTypes.o generated_files/obj/SimpleDS.o generated_files/obj/SimpleDS_wrap.o -o generated_files/_SimpleDS.so -L/opt/python/3.11/linux/RHEL70/lib -lpython3.11
+python python/pointer1.py
+
+[C++ Code], Algo::Algo() started.[0x7f24694907b0]
+
+[C++ Code], Algo::Algo(), pub = 999
+
+[C++ Code], Algo::Algo() exited.
+
+ [PYTHON CODE] :   Testing Basic Python Data Structures and classes 2
+
+ [PYTHON CODE] :  ******************************************** Print checkig module  SimpleDS 
+
+
+ [PYTHON CODE] :   SimpleDS =   <module 'SimpleDS' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/./generated_files/SimpleDS.py'>
+
+ [PYTHON CODE] :   type(SimpleDS)  =   <class 'module'>
+
+ [PYTHON CODE] :   dir(SimpleDS)  =   ['A', 'Accumulate', 'Algo', 'Algo_classInfo', 'B', 'CPP_CODE_MSG_G', 'Circle', 'Geometry', 'Geometry_create', 'Geometry_destroy', 'Point', 'RED', 'Rectangle', 'Rectangle_classInfo', 'Shape', 'Shape_classInfo', 'VERSION', '_SimpleDS', '_SwigNonDynamicMeta', '__builtin__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_swig_add_metaclass', '_swig_python_version_info', '_swig_repr', '_swig_setattr_nondynamic_class_variable', '_swig_setattr_nondynamic_instance_variable', 'addition', 'calculateArea', 'class_name', 'createRectangle', 'cvar', 'execute_op', 'getAii', 'multiplication', 'passCharPtr', 'subtraction']
+
+ [PYTHON CODE] :  ******************************************** Print Macro SimpleDS.ADD
+
+ [PYTHON CODE] :  ******************************************** Print global variable SimpleDS.cvar.pi
+
+ [PYTHON CODE] :   SimpleDS.cvar =   (MULTIPLY, SUBTRCT, ADD, foo, pA1, class_name, some_no, arr, pi)
+
+ [PYTHON CODE] :   type(SimpleDS.cvar)=   <class 'swigvarlink'>
+
+ [PYTHON CODE] :   dir (SimpleDS.cvar)=   []
+
+ [PYTHON CODE] :   SimpleDS.cvar.ADD =   <Swig Object of type 'int (*)(int,int)' at 0x7f2461f08f90>
+
+ [PYTHON CODE] :  ******************************************** SimpleDS.execute_op(20,30,SimpleDS.cvar.ADD) 
+
+
+[C++ Code], [Pointer.h]::execute_op(), started.
+
+[C++ Code], [Pointer.h]::addition(), started.
+
+[C++ Code], [Pointer.h]::addition(), , a = 20
+
+[C++ Code], [Pointer.h]::addition(), , b = 30
+
+[C++ Code], [Pointer.h]::addition(), , res = 50
+
+[C++ Code], [Pointer.h]::addition(),  exited.
+
+[C++ Code], [Pointer.h]::execute_op(),  exited.
+
+ [PYTHON CODE] :   SimpleDS.execute_op(20,30,SimpleDS.cvar.ADD)  =   50
+
+ [PYTHON CODE] :  ******************************************** SimpleDS.execute_op(20,30,SimpleDS.cvar.MULTIPLY) 
+
+
+[C++ Code], [Pointer.h]::execute_op(), started.
+
+[C++ Code], [Pointer.h]::multiplication(), started.
+
+[C++ Code], [Pointer.h]::multiplication(), , a = 25
+
+[C++ Code], [Pointer.h]::multiplication(), , b = 35
+
+[C++ Code], [Pointer.h]::multiplication(), , res = 875
+
+[C++ Code], [Pointer.h]::multiplication(),  exited.
+
+[C++ Code], [Pointer.h]::execute_op(),  exited.
+
+ [PYTHON CODE] :   SimpleDS.execute_op(25,35,SimpleDS.cvar.MULTIPLY)  =   875
+
+ [PYTHON CODE] :  ***********  END OF PROGRAM *********************************
+
+[C++ Code], Algo::~Algo() started.[0x7f24694907b0]
+
+[C++ Code], Algo::~Algo(), pub = 999
+
+[C++ Code], Algo::~Algo() exited.
+rajput@vihlc1737[FAST3_Python/v2]{master} 
+rajput@vihlc1737[FAST3_Python/v2]{master} 

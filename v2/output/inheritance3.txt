@@ -1,0 +1,94 @@
+rajput@vihlc1737[FAST3_Python/v2]{master} make inh3
+g++ -shared generated_files/obj/inheritance1_wrap.o generated_files/obj/inheritance1.o -o generated_files/_INHRT.so -L/opt/python/3.11/linux/RHEL70/lib -lpython3.11
+echo "its FAST3 Python v2"
+its FAST3 Python v2
+python python/inheritance3.py
+
+ [PYTHON CODE] :   Testing Basic Python class Inheritance 3
+
+ [PYTHON CODE] :  ******************************************** Print checkig module  INHRT 
+
+
+ [PYTHON CODE] :   INHRT =   <module 'INHRT' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/./generated_files/INHRT.py'>
+
+ [PYTHON CODE] :   type(INHRT)  =   <class 'module'>
+
+ [PYTHON CODE] :   dir(INHRT)  =   ['Employee', 'EmployeeList', 'Manager', 'SwigPyIterator', '_INHRT', '_SwigNonDynamicMeta', '__builtin__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_swig_add_metaclass', '_swig_python_version_info', '_swig_repr', '_swig_setattr_nondynamic_class_variable', '_swig_setattr_nondynamic_instance_variable', 'weakref']
+
+ [PYTHON CODE] :  ******************************************** creating Python class CEO(INHRT.Manager)
+
+
+ [PYTHON CODE] :  ********************************************  r1 = CEO();
+ 	[0x55802582f8f0]	SAM
+
+ [PYTHON CODE] :   r1 =   <__main__.CEO; proxy of <Swig Object of type 'Manager *' at 0x7f643e6c7480> >
+
+ [PYTHON CODE] :   type(r1)=   <class '__main__.CEO'>
+
+ [PYTHON CODE] :  ******************************************** : base non-virtual func:  r1.getName();
+
+ [PYTHON CODE] :   r1.getName() =   SAM
+
+ [PYTHON CODE] :  ******************************************** overriden func:  r1.getPosition();
+
+ [PYTHON CODE] :   r1.getPosition() =   CEO
+
+ [PYTHON CODE] :  ******************************************** sbase non-virtual func:: r1.getTitle();
+
+ [PYTHON CODE] :   r1.getTitle() =   CEO SAM
+
+ [PYTHON CODE] :  ******************************************** check ownership : r1.thisown;
+
+ [PYTHON CODE] :   r1.thisown =   True
+
+ [PYTHON CODE] :  ******************************************** sbase non-virtual func:: r1.show();
+
+ [PYTHON CODE] :   r1.show() =    SAM , age = 60 , CEO SAM
+
+ [PYTHON CODE] :  ******************************************** check ownership : r1.myType();
+
+ [PYTHON CODE] :   CEO.myType() =   Python : CEO class , <class 'type'> , derived from INHRT.Manager , its type <class 'type'>
+
+ [PYTHON CODE] :  ******************************************** r2 = copy.deepcopy(r1);
+
+ [PYTHON CODE] :  ******************************************** Print using del r1, call DTOR;
+CEO::__del__() called for CEO SAM
+~Employee() @ 0x55802582f8f0
+
+ [PYTHON CODE] :  ********************************************  r3 = CEO("JOHN",50);
+ 	[0x55802582f8f0]	JOHN
+
+ [PYTHON CODE] :   r3.thisown =   True
+
+ [PYTHON CODE] :   r3.thisown =   False
+
+ [PYTHON CODE] :  ********************************************  list = INHRT.EmployeeList();
+ 	[0x5580257d17f0]	Bob
+ 	[0x55802582e570]	Jane
+ 	[0x5580257b9960]	Ted
+
+ [PYTHON CODE] :  ********************************************  list.addEmployee(r3);
+New employee added.   Current employees are:
+  Employee Bob
+  Employee Jane
+  Manager Ted
+  CEO JOHN
+
+ [PYTHON CODE] :  ********************************************  print the employee list 
+(position, title) for items 0-3:
+  Employee, "Employee Bob"
+  Employee, "Employee Jane"
+  Manager, "Manager Ted"
+  CEO, "CEO JOHN"
+----------------------
+~EmployeeList, deleting 4 employees.
+~Employee() @ 0x5580257d17f0
+~Employee() @ 0x55802582e570
+~Employee() @ 0x5580257b9960
+CEO::__del__() called for CEO JOHN
+~Employee() @ 0x55802582f8f0
+~EmployeeList empty.
+----------------------
+
+ [PYTHON CODE] :  ***********  END OF PROGRAM *********************************
+rajput@vihlc1737[FAST3_Python/v2]{master} 

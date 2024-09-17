@@ -1,0 +1,69 @@
+rajput@vihlc1737[FAST3_Python/v2]{master} make inh2
+echo "its FAST3 Python v2"
+its FAST3 Python v2
+python python/inheritance2.py
+
+[C++ Code], Algo::Algo() started.[0x7f9230afa670]
+
+[C++ Code], Algo::Algo(), pub = 999
+
+[C++ Code], Algo::Algo() exited.
+
+ [PYTHON CODE] :   Testing Basic Python class Inheritance 2
+
+ [PYTHON CODE] :  ********************************************  create derived Point, using base static Factory func: g1_p = SimpleDS.Geometry.create(1);
+
+ [PYTHON CODE] :   g1_p =   <SimpleDS.Geometry; proxy of <Swig Object of type 'Geometry *' at 0x7f9229516e80> >
+
+ [PYTHON CODE] :   type(g1_p)=   <class 'SimpleDS.Geometry'>
+
+ [PYTHON CODE] :  ******************************************** call base pure virtual func:  g1_p.draw();
+
+[C++ Code], virtual int Point::draw()() started.[0x5576558f3210]
+
+[C++ Code], virtual int Point::draw()() exited.
+
+ [PYTHON CODE] :   g1_p.draw() =   1
+
+ [PYTHON CODE] :  ******************************************** delete point using base static sunc :  SimpleDS.Geometry.destroy(g1_p);
+
+[C++ Code], static void Geometry::destroy(Geometry*), started.[0x5576558f3210]
+
+[C++ Code], virtual Point::~Point()() started.[0x5576558f3210]
+
+[C++ Code], virtual Point::~Point()() exited.
+
+[C++ Code], virtual Geometry::~Geometry()() started.[0x5576558f3210]
+
+[C++ Code], virtual Geometry::~Geometry()() exited.
+
+[C++ Code], static void Geometry::destroy(Geometry*)() exited.
+
+ [PYTHON CODE] :   g1_p =   <SimpleDS.Geometry; proxy of <Swig Object of type 'Geometry *' at 0x7f9229516e80> >
+
+ [PYTHON CODE] :   type(g1_p)=   <class 'SimpleDS.Geometry'>
+
+ [PYTHON CODE] :  ********************************************  g1_c = SimpleDS.Geometry.create(2);
+
+ [PYTHON CODE] :   g1_c =   <SimpleDS.Geometry; proxy of <Swig Object of type 'Geometry *' at 0x7f9229516a90> >
+
+ [PYTHON CODE] :   type(g1_c)=   <class 'SimpleDS.Geometry'>
+
+ [PYTHON CODE] :  ******************************************** only derived func:non-virtual:  g1_c.draw();
+
+[C++ Code], virtual int Circle::draw()() started.[0x5576558f3210]
+
+[C++ Code], virtual int Circle::draw()() exited.
+
+ [PYTHON CODE] :   g1_c.draw() =   2
+
+ [PYTHON CODE] :  ******************************************** overriden func:  SimpleDS.Geometry.destroy(g1_c);
+
+ [PYTHON CODE] :  ***********  END OF PROGRAM *********************************
+
+[C++ Code], Algo::~Algo() started.[0x7f9230afa670]
+
+[C++ Code], Algo::~Algo(), pub = 999
+
+[C++ Code], Algo::~Algo() exited.
+rajput@vihlc1737[FAST3_Python/v2]{master} 

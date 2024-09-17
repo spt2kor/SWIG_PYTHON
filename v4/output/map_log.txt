@@ -1,0 +1,109 @@
+rajput@vihlc1771[FAST2/v4]{master} make clean
+rm -f generated_files/obj/umap.o generated_files/obj/map.o generated_files/obj/vect.o generated_files/obj/str.o 
+rm -f generated_files/STDLib.so generated_files/STDLib_wrap.cpp generated_files/STDLib.pm generated_files/obj/STDLib_wrap.o
+rajput@vihlc1771[FAST2/v4]{master} make map
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/umap.cpp -o generated_files/obj/umap.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/map.cpp -o generated_files/obj/map.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/vect.cpp -o generated_files/obj/vect.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/str.cpp -o generated_files/obj/str.o
+swig -c++ -perl -outdir generated_files -o generated_files/STDLib_wrap.cpp swig/STDLib.i
+swig/../cpp/vect.h:20: Warning 503: Can't wrap 'operator ==' unless renamed to a valid identifier.
+g++ -c -Wno-literal-suffix -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/perl_5.18.2/linux50_64/lib/CORE/ generated_files/STDLib_wrap.cpp -I cpp/ -o generated_files/obj/STDLib_wrap.o
+g++ -shared generated_files/obj/umap.o generated_files/obj/map.o generated_files/obj/vect.o generated_files/obj/str.o generated_files/obj/STDLib_wrap.o -o generated_files/STDLib.so -L/opt/perl_5.18.2/linux50_64/lib/CORE -lperlifx
+perl perl/map.pl
+
+[PERL CODE]:	perl code started here
+[PERL CODE]:	 ==============================
+[PERL CODE]:	 ==============================  create STDLib::map_ii() 
+
+[PERL CODE]:	 vi1 = STDLib::map_ii=HASH(0x9de770)
+
+[PERL CODE]:	 vi1.size() = 0
+
+[PERL CODE]:	 ==============================  add values to map_ii 
+
+[PERL CODE]:	 vi1.size() = 5
+
+[PERL CODE]:	 ==============================  print map =STDLib::map_ii=HASH(0x9de770)
+
+[PERL CODE]:	key = 1 , value = 56
+[PERL CODE]:	key = 2 , value = 57
+[PERL CODE]:	key = 3 , value = 58
+[PERL CODE]:	key = 4 , value = 59
+[PERL CODE]:	key = 5 , value = 60
+
+[PERL CODE]:	 ==============================   int printMapII(map<int,int> mp);; 
+
+[C++ Code], [MAP]::printMapII(), started.
+
+[C++ Code], [MAP]::operator()(), , key = 1, value = 56
+
+[C++ Code], [MAP]::operator()(), , key = 2, value = 57
+
+[C++ Code], [MAP]::operator()(), , key = 3, value = 58
+
+[C++ Code], [MAP]::operator()(), , key = 4, value = 59
+
+[C++ Code], [MAP]::operator()(), , key = 5, value = 60
+
+[C++ Code], [MAP]::printMapII(),  exited.
+
+[PERL CODE]:	 printMapII(vi1) = 5
+
+[PERL CODE]:	 ==============================
+
+[PERL CODE]:	 ==============================
+
+[PERL CODE]:	 ==============================  create STDLib::map_sd() 
+
+[PERL CODE]:	 vi2 = STDLib::map_sd=HASH(0x9de8c0)
+
+[PERL CODE]:	 vi2.size() = 0
+
+[PERL CODE]:	 ==============================  add values to map_sd 
+
+[PERL CODE]:	 vi2.size() = 5
+
+[PERL CODE]:	 ==============================  print map =STDLib::map_sd=HASH(0x9de8c0)
+
+[PERL CODE]:	 1, key = k1  , value = 56.7
+[PERL CODE]:	 2, key = k5  , value = 58.4
+[PERL CODE]:	 3, key = k4  , value = 60.1
+[PERL CODE]:	 4, key = k3  , value = 61.8
+[PERL CODE]:	 5, key = k2  , value = 63.5
+
+[PERL CODE]:	 ==============================   map<string,double> PrintMapCR(const map<string,double> & mp) ; 
+
+[PERL CODE]:	 calling printMapII(vi2) = 
+
+[C++ Code], [MAP]::PrintMapCR(), started.
+
+[C++ Code], [MAP]::operator()(), , key = k1, value = 56.7
+
+[C++ Code], [MAP]::operator()(), , key = k2, value = 63.5
+
+[C++ Code], [MAP]::operator()(), , key = k3, value = 61.8
+
+[C++ Code], [MAP]::operator()(), , key = k4, value = 60.1
+
+[C++ Code], [MAP]::operator()(), , key = k5, value = 58.4
+
+[C++ Code], [MAP]::PrintMapCR(),  exited.
+
+[PERL CODE]:	 vi3.size() = 5
+
+[PERL CODE]:	 ==============================  print map =STDLib::map_sd=HASH(0xc02348)
+
+[PERL CODE]:	 1, key = k1  , value = 56.7
+[PERL CODE]:	 2, key = k5  , value = 58.4
+[PERL CODE]:	 3, key = k4  , value = 60.1
+[PERL CODE]:	 4, key = k3  , value = 61.8
+[PERL CODE]:	 5, key = k2  , value = 63.5
+
+[PERL CODE]:	 ==============================
+
+[PERL CODE]:	 perl code ended here
+
+
+[PERL CODE]:	 ==============================
+rajput@vihlc1771[FAST2/v4]{master} 

@@ -1,0 +1,65 @@
+==================================================================================
+module load cmgit;
+cmgit -r camino;   
+cd /home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1
+
+module unload swig
+module load swig/4.0.1
+
+module unload gcc
+module load gcc/10.3.0
+
+module unload python
+module load python/3.11
+
+module load vscode;
+code ./../FAST3_Python.code-workspace &
+
+
+==================================================================================
+
+========================================================================================================
+https://www.swig.org/Doc4.0/SWIGDocumentation.html#Library_stl_cpp_library
+
+11.4 STL/C++ library
+--------------------
+The library modules in this section provide access to parts of the standard C++ library including the STL. SWIG support for the STL is an ongoing effort. Support is quite comprehensive for some language modules but some of the lesser used modules do not have quite as much library code written.
+
+The following table shows which C++ classes are supported and the equivalent SWIG interface library file for the C++ library.
+
+C++ class	                                C++ Library file	                SWIG Interface library file
+-------------------------------------------------------------------------------------------------------------
+std::array (C++11)	                                       array	                    std_array.i
+std::auto_ptr	                                            memory	                    std_auto_ptr.i
+std::complex		                                        complex	                    std_complex.i
+std::deque		                                            deque	                    std_deque.i
+std::list		                                            list	                    std_list.i
+std::map		                                            map	                    std_map.i
+std::multimap (C++11)		                                multimap	                    std_multimap.i
+std::multiset (C++11)		                                multiset	                    std_multiset.i
+std::pair		                                            utility	                    std_pair.i
+std::set		                                            set	                    std_set.i
+std::string		                                            string	                    std_string.i
+std::unordered_map (C++11)		                            unordered_map	                    std_unordered_map.i
+std::unordered_multimap (C++11)		                        unordered_multimap	                    std_unordered_multimap.i
+std::unordered_multiset (C++11)		                        unordered_multiset	                    std_unordered_multiset.i
+std::unordered_set (C++11)		                            unordered_set	                    std_unordered_set.i
+std::vector		                                            vector	                    std_vector.i
+std::wstring		                                        wstring                    	std_wstring.i
+std::shared_ptr (C++11)		                                shared_ptr	                    std_shared_ptr.i
+-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

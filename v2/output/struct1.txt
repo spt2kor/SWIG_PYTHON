@@ -1,0 +1,148 @@
+rajput@vihlc1737[FAST3_Python/v2]{master} make clean
+rm -f generated_files/obj/Pointer1.o generated_files/obj/Singleton.o generated_files/obj/Pointer.o generated_files/obj/Shape.o generated_files/obj/SimpleDS.o  generated_files/obj/DataTypes.o  
+rm -f generated_files/obj/SimpleDS_wrap.o generated_files/_SimpleDS.so generated_files/SimpleDS_wrap.cpp generated_files/SimpleDS.py
+rm -f generated_files/obj/inheritance1.o
+rm -f generated_files/INHRT.so generated_files/inheritance1_wrap.cpp generated_files/obj/inheritance1_wrap.o generated_files/inheritance1.pm 
+rajput@vihlc1737[FAST3_Python/v2]{master} make strc1
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/Pointer.cpp -o generated_files/obj/Pointer.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/DataTypes.cpp -o generated_files/obj/DataTypes.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/Shape.cpp -o generated_files/obj/Shape.o
+g++ -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/SimpleDS.cpp -o generated_files/obj/SimpleDS.o
+cpp/SimpleDS.cpp: In constructor 'Rectangle::Rectangle(int, int)':
+cpp/SimpleDS.cpp:37:53: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+   37 | Rectangle::Rectangle(int height, int width) : Shape("Default-Rect"), height(height), width(width)
+      |                                                     ^~~~~~~~~~~~~~
+swig -c++ -python  -outdir generated_files -o generated_files/SimpleDS_wrap.cpp swig/SimpleDS.i
+swig/../cpp/Shape.h:20: Warning 362: operator= ignored
+swig/../cpp/SimpleDS.h:32: Warning 362: operator= ignored
+swig/../cpp/DataTypes.h:31: Warning 362: operator= ignored
+swig/../cpp/DataTypes.h:35: Warning 314: 'print' is a python keyword, renaming to '_print'
+swig/../cpp/DataTypes.h:43: Warning 454: Setting a pointer/reference variable may leak memory.
+swig/../cpp/DataTypes.h:45: Warning 451: Setting a const char * variable may leak memory.
+g++ -c -Wno-literal-suffix -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/python/3.11/linux/RHEL70/include/python3.11/ generated_files/SimpleDS_wrap.cpp -I cpp/ -o generated_files/obj/SimpleDS_wrap.o
+g++ -shared generated_files/obj/Pointer.o generated_files/obj/Shape.o generated_files/obj/DataTypes.o generated_files/obj/SimpleDS.o generated_files/obj/SimpleDS_wrap.o -o generated_files/_SimpleDS.so -L/opt/python/3.11/linux/RHEL70/lib -lpython3.11
+echo "its FAST3 Python v2"
+its FAST3 Python v2
+python python/struct1.py
+
+[C++ Code], Algo::Algo() started.[0x7fe3c13bc7b0]
+
+[C++ Code], Algo::Algo(), pub = 999
+
+[C++ Code], Algo::Algo() exited.
+
+ [PYTHON CODE] :   Testing Basic Python Data Structures and classes 2
+
+ [PYTHON CODE] :  ******************************************** Print checkig module  SimpleDS 
+
+
+ [PYTHON CODE] :   SimpleDS =   <module 'SimpleDS' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/./generated_files/SimpleDS.py'>
+
+ [PYTHON CODE] :   type(SimpleDS)  =   <class 'module'>
+
+ [PYTHON CODE] :   dir(SimpleDS)  =   ['A', 'Accumulate', 'Algo', 'Algo_classInfo', 'B', 'CPP_CODE_MSG_G', 'Circle', 'Geometry', 'Geometry_create', 'Geometry_destroy', 'Point', 'RED', 'Rectangle', 'Rectangle_classInfo', 'Shape', 'Shape_classInfo', 'VERSION', '_SimpleDS', '_SwigNonDynamicMeta', '__builtin__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_swig_add_metaclass', '_swig_python_version_info', '_swig_repr', '_swig_setattr_nondynamic_class_variable', '_swig_setattr_nondynamic_instance_variable', 'addition', 'calculateArea', 'class_name', 'createRectangle', 'cvar', 'execute_op', 'getAii', 'multiplication', 'passCharPtr', 'subtraction']
+
+ [PYTHON CODE] :  ******************************************** Print using r1 = SimpleDS.Algo();
+
+[C++ Code], Algo::Algo() started.[0x557d031d0fe0]
+
+[C++ Code], Algo::Algo(), pub = 20
+
+[C++ Code], Algo::Algo() exited.
+
+ [PYTHON CODE] :   r1 =   <SimpleDS.Algo; proxy of <Swig Object of type 'Algo *' at 0x7fe3b9e396b0> >
+
+ [PYTHON CODE] :   type(r1)=   <class 'SimpleDS.Algo'>
+
+ [PYTHON CODE] :  ******************************************** Print using r1.pri;
+
+ [PYTHON CODE] :  ******************************************** Print using r1.pro;
+
+ [PYTHON CODE] :  ******************************************** Print using r1.pub;
+
+ [PYTHON CODE] :   r1.pub =   20
+
+ [PYTHON CODE] :   r1.pub =   20000
+
+ [PYTHON CODE] :  ******************************************** Print using r1.getPri();
+
+ [PYTHON CODE] :   r1.getPri() =   100
+
+ [PYTHON CODE] :  ******************************************** Print using r1.print();
+
+ [PYTHON CODE] :  ******************************************** Print using r1._print();
+
+[C++ Code], Algo::print() started.[0x557d031d0fe0]
+
+[C++ Code], Algo::print(), pub = 20000
+
+[C++ Code], Algo::print() exited.
+
+ [PYTHON CODE] :   r1._print() =   None
+
+ [PYTHON CODE] :  ******************************************** Print using r1.classInfo();
+
+[C++ Code], Algo::classInfo() started.
+
+[C++ Code], Algo::class details: 4Algo
+
+[C++ Code], Algo::classInfo() exited.
+
+ [PYTHON CODE] :   r1.classInfo() =   True
+
+ [PYTHON CODE] :  ******************************************** Print using r1.thisown;
+
+ [PYTHON CODE] :   r1.thisown =   True
+
+ [PYTHON CODE] :  ******************************************** Print using r2 = SimpleDS.Algo(r1);
+
+[C++ Code], Algo::Algo() started.[0x557d0311b370]
+
+[C++ Code], Algo::Algo() exited.
+
+ [PYTHON CODE] :   r2 =   <SimpleDS.Algo; proxy of <Swig Object of type 'Algo *' at 0x7fe3b9e398f0> >
+
+[C++ Code], Algo::print() started.[0x557d0311b370]
+
+[C++ Code], Algo::print(), pub = 20000
+
+[C++ Code], Algo::print() exited.
+
+ [PYTHON CODE] :  ******************************************** Print using r3 = r2.clone();
+
+[C++ Code], Algo::clone() started.[0x557d0311b370]
+
+[C++ Code], Algo::Algo() started.[0x557d031897e0]
+
+[C++ Code], Algo::Algo() exited.
+
+[C++ Code], Algo::clone() exited.
+
+ [PYTHON CODE] :   r3 =   <SimpleDS.Algo; proxy of <Swig Object of type 'Algo *' at 0x7fe3b9e39950> >
+
+[C++ Code], Algo::print() started.[0x557d031897e0]
+
+[C++ Code], Algo::print(), pub = 20000
+
+[C++ Code], Algo::print() exited.
+
+ [PYTHON CODE] :  ***********  END OF PROGRAM *********************************
+
+[C++ Code], Algo::~Algo() started.[0x557d031d0fe0]
+
+[C++ Code], Algo::~Algo(), pub = 20000
+
+[C++ Code], Algo::~Algo() exited.
+
+[C++ Code], Algo::~Algo() started.[0x557d0311b370]
+
+[C++ Code], Algo::~Algo(), pub = 20000
+
+[C++ Code], Algo::~Algo() exited.
+
+[C++ Code], Algo::~Algo() started.[0x7fe3c13bc7b0]
+
+[C++ Code], Algo::~Algo(), pub = 999
+
+[C++ Code], Algo::~Algo() exited.
+rajput@vihlc1737[FAST3_Python/v2]{master} 

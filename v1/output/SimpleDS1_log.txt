@@ -1,0 +1,59 @@
+rajput@vihlc2015[FAST3_Python/v1]{master} make clean
+rm -f generated_files/obj/SimpleDS.o 
+rm -f generated_files/_SimpleDS.so generated_files/SimpleDS_wrap.cpp generated_files/SimpleDS.py generated_files/obj/SimpleDS_wrap.o
+rajput@vihlc2015[FAST3_Python/v1]{master} make
+g++ -std=c++11 -c -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64  cpp/SimpleDS.cpp -o generated_files/obj/SimpleDS.o
+swig -c++ -python -outdir generated_files -o generated_files/SimpleDS_wrap.cpp swig/SimpleDS.i
+swig/../cpp/SimpleDS.h:14: Warning 362: operator= ignored
+g++ -c -Wno-literal-suffix -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fno-strict-aliasing -pipe -fstack-protector -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -fPIC -m64 -I /opt/python/3.11/linux/RHEL70/include/python3.11/ generated_files/SimpleDS_wrap.cpp -I cpp/ -o generated_files/obj/SimpleDS_wrap.o
+g++ -shared generated_files/obj/SimpleDS.o generated_files/obj/SimpleDS_wrap.o -o generated_files/_SimpleDS.so -L/opt/python/3.11/linux/RHEL70/lib -lpython3.11
+echo "its FAST3 Python v1"
+its FAST3 Python v1
+python python/SimpleDS1.py
+/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1/python
+/opt/python/3.11/linux/pyperl/python/lib/python3.10/site-packages
+/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1
+/opt/python/3.11/linux/RHEL70/lib/python311.zip
+/opt/python/3.11/linux/RHEL70/lib/python3.11
+/opt/python/3.11/linux/RHEL70/lib/python3.11/lib-dynload
+/opt/python/3.11/linux/RHEL70/lib/python3.11/site-packages
+./generated_files/
+./perl/
+[PYTHON CODE] :   Testing Basic Python Data Structures 
+[PYTHON CODE] :  ******************************************** Print checkig module  _SimpleDS
+[PYTHON CODE] :   _SimpleDS =   <module '_SimpleDS' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1/./generated_files/_SimpleDS.so'>
+[PYTHON CODE] :   type(_SimpleDS)  =   <class 'module'>
+[PYTHON CODE] :   dir(_SimpleDS)  =   ['RED', 'Rectangle_area', 'Rectangle_classInfo', 'Rectangle_clone', 'Rectangle_show', 'Rectangle_swiginit', 'Rectangle_swigregister', 'SWIG_PyInstanceMethod_New', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'calculateArea', 'cvar', 'delete_Rectangle', 'new_Rectangle']
+[PYTHON CODE] :  ******************************************** Print Macro _SimpleDS.RED
+[PYTHON CODE] :   _SimpleDS.RED =   16711680 , type( _SimpleDS.RED ) =   <class 'int'>
+[PYTHON CODE] :  ******************************************** Print global variable _SimpleDS.cvar.pi
+[PYTHON CODE] :   _SimpleDS.cvar =   (some_no, class_name, pi)
+[PYTHON CODE] :   type(_SimpleDS.cvar)=   <class 'swigvarlink'>
+[PYTHON CODE] :   _SimpleDS.cvar.pi =   3.14
+[PYTHON CODE] :  ******************************************** Print global variable _SimpleDS.cvar.some_no
+[PYTHON CODE] :   _SimpleDS.cvar.some_no =   1001  type(_SimpleDS.cvar.some_no) =   <class 'int'>
+[PYTHON CODE] :  ******************************************** Print global variable _SimpleDS.calculateArea(10,20)
+[PYTHON CODE] :   _SimpleDS.calculateArea =   <built-in function calculateArea>
+
+[ C++ CODE ], [SimpleDS]::calculateArea(), started.
+
+ value of pi = 3.14, and color REd = 16711680
+
+[ C++ CODE ], [SimpleDS]::calculateArea(),  exited.
+[PYTHON CODE] :   _SimpleDS.calculateArea(10,20) =   200
+[PYTHON CODE] :  ******************************************** Print checkig module  _SimpleDS.Rectangle
+[PYTHON CODE] :  ******************************************** Print using r1 = _SimpleDS.Rectangle();
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), started.[0x56154cbc68f0]
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), exited.
+[PYTHON CODE] :   r1 =   <Swig Object of type 'Rectangle *' at 0x7faa0534bfc0>
+[PYTHON CODE] :   type(r1)=   <class 'SwigPyObject'>
+[PYTHON CODE] :  ******************************************** Print using r1.area();
+[PYTHON CODE] :  ******************************************** Print using _SimpleDS.delete_Rectangle(r1);
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), started.[0x56154cbc68f0]
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), exited.
+[PYTHON CODE] :  ********************************************
+rajput@vihlc2015[FAST3_Python/v1]{master} 

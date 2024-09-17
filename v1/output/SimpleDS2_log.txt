@@ -1,0 +1,165 @@
+rajput@vihlc2015[FAST3_Python/v1]{master} python python/SimpleDS2.py
+
+ [PYTHON CODE] :   Testing Basic Python Data Structures and classes 2
+
+ [PYTHON CODE] :  ******************************************** Print checkig module  SimpleDS 
+
+
+ [PYTHON CODE] :   SimpleDS =   <module 'SimpleDS' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1/./generated_files/SimpleDS.py'>
+
+ [PYTHON CODE] :   type(SimpleDS)  =   <class 'module'>
+
+ [PYTHON CODE] :   dir(SimpleDS)  =   ['RED', 'Rectangle', 'Rectangle_classInfo', '_SimpleDS', '_SwigNonDynamicMeta', '__builtin__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_swig_add_metaclass', '_swig_python_version_info', '_swig_repr', '_swig_setattr_nondynamic_class_variable', '_swig_setattr_nondynamic_instance_variable', 'calculateArea', 'class_name', 'cvar']
+
+ [PYTHON CODE] :  ******************************************** Print Macro SimpleDS.RED
+
+ [PYTHON CODE] :   SimpleDS.RED =   16711680 , type( SimpleDS.RED ) =   <class 'int'>
+
+ [PYTHON CODE] :  ******************************************** Print global variable SimpleDS.cvar.pi
+
+ [PYTHON CODE] :   SimpleDS.cvar =   (some_no, class_name, pi)
+
+ [PYTHON CODE] :   type(SimpleDS.cvar)=   <class 'swigvarlink'>
+
+ [PYTHON CODE] :   dir (SimpleDS.cvar)=   []
+
+ [PYTHON CODE] :   SimpleDS.cvar.pi =   3.14
+
+ [PYTHON CODE] :  ******************************************** Print global variable SimpleDS.cvar.some_no
+
+ [PYTHON CODE] :   SimpleDS.cvar.some_no =   1001  type(SimpleDS.cvar.some_no) =   <class 'int'>
+
+ [PYTHON CODE] :  ******************************************** Print global variable SimpleDS.calculateArea(10,20)
+
+ [PYTHON CODE] :   SimpleDS.calculateArea =   <function calculateArea at 0x7f5c4f112200>
+
+[ C++ CODE ], [SimpleDS]::calculateArea(), started.
+
+ value of pi = 3.14, and color REd = 16711680
+
+[ C++ CODE ], [SimpleDS]::calculateArea(),  exited.
+
+ [PYTHON CODE] :   SimpleDS.calculateArea(10,20) =   200
+
+ [PYTHON CODE] :  ******************************************** Print global variable SimpleDS.cvar.class_name
+
+ [PYTHON CODE] :   SimpleDS.cvar =   custome class SimpleDS::Rectangle
+
+ [PYTHON CODE] :  ******************************************** Print checkig module  SimpleDS.Rectangle
+
+ [PYTHON CODE] :   SimpleDS.Rectangle =   <class 'SimpleDS.Rectangle'>
+
+ [PYTHON CODE] :   type(SimpleDS.Rectangle)  =   <class 'type'>
+
+ [PYTHON CODE] :   dir(SimpleDS.Rectangle)  =   ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__swig_destroy__', '__weakref__', 'area', 'classInfo', 'clone', 'show', 'thisown']
+
+ [PYTHON CODE] :  ******************************************** Print using r1 = SimpleDS.Rectangle();
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), started.[0x559111ace950]
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), exited.
+
+ [PYTHON CODE] :   r1 =   <SimpleDS.Rectangle; proxy of <Swig Object of type 'Rectangle *' at 0x7f5c4f123c60> >
+
+ [PYTHON CODE] :   type(r1)=   <class 'SimpleDS.Rectangle'>
+
+ [PYTHON CODE] :  ******************************************** Print using r1.area();
+
+[ C++ CODE ], [SimpleDS]::area(), started.[0x559111ace950]
+
+[ C++ CODE ], [SimpleDS]::area(), exited.
+
+ [PYTHON CODE] :   r1.area() =   200
+
+ [PYTHON CODE] :  ******************************************** Print using r1.show();
+
+[ C++ CODE ], [SimpleDS]::show(), started.[0x559111ace950]
+
+Rectangle details: height : 10, width : 20
+
+[ C++ CODE ], [SimpleDS]::show(), exited.
+
+ [PYTHON CODE] :   r1.show() =   None
+
+ [PYTHON CODE] :  ******************************************** Print using r1.classInfo();
+
+[ C++ CODE ], [SimpleDS]::classInfo(), started.
+
+class details: 9Rectangle
+
+[ C++ CODE ], [SimpleDS]::classInfo(), exited.
+
+ [PYTHON CODE] :   r1.classInfo() =   True
+
+ [PYTHON CODE] :  ******************************************** Print using r1.thisown;
+
+ [PYTHON CODE] :   r1.thisown =   True
+
+ [PYTHON CODE] :  ******************************************** Print using r2 = SimpleDS.Rectangle(r1);
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), started.[0x559111b6eff0]
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), Rectangle::Rectangle(const Rectangle &o)
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), exited.
+
+ [PYTHON CODE] :   r2 =   <SimpleDS.Rectangle; proxy of <Swig Object of type 'Rectangle *' at 0x7f5c4f123a80> >
+
+[ C++ CODE ], [SimpleDS]::show(), started.[0x559111b6eff0]
+
+Rectangle details: height : 10, width : 20
+
+[ C++ CODE ], [SimpleDS]::show(), exited.
+
+ [PYTHON CODE] :  ******************************************** Print using r3 = r2.clone();
+
+[ C++ CODE ], [SimpleDS]::clone(), started.[0x559111b6eff0]
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), started.[0x7ffeb48da448]
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), exited.
+
+[ C++ CODE ], [SimpleDS]::clone(), exited.
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), started.[0x559111b6f010]
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), Rectangle::Rectangle(const Rectangle &o)
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), exited.
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), started.[0x7ffeb48da448]
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), exited.
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), started.[0x559111b6f030]
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), Rectangle::Rectangle(const Rectangle &o)
+
+[ C++ CODE ], [SimpleDS]::Rectangle(), exited.
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), started.[0x559111b6f010]
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), exited.
+
+ [PYTHON CODE] :   r3 =   <SimpleDS.Rectangle; proxy of <Swig Object of type 'Rectangle *' at 0x7f5c4f123990> >
+
+[ C++ CODE ], [SimpleDS]::area(), started.[0x559111b6f030]
+
+[ C++ CODE ], [SimpleDS]::area(), exited.
+
+ [PYTHON CODE] :  ******************************************** Print using del r1, call DTOR;
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), started.[0x559111ace950]
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), exited.
+
+ [PYTHON CODE] :  ********************************************
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), started.[0x559111b6eff0]
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), exited.
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), started.[0x559111b6f030]
+
+[ C++ CODE ], [SimpleDS]::~Rectangle(), exited.
+rajput@vihlc2015[FAST3_Python/v1]{master} 
