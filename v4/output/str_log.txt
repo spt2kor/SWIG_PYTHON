@@ -6,7 +6,7 @@ python python/str.py
  [PYTHON CODE] :  ******************************************** Print module  STDLib 
 
 
- [PYTHON CODE] :   STDLib =   <module 'STDLib' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v4/./generated_files/STDLib.py'>
+ [PYTHON CODE] :   STDLib =   <module 'STDLib' from '<>/FAST3_Python/v4/./generated_files/STDLib.py'>
 
  [PYTHON CODE] :   type(STDLib)  =   <class 'module'>
 

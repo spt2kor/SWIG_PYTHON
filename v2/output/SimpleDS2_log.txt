@@ -35,7 +35,7 @@ python python/SimpleDS2.py
  [PYTHON CODE] :  ******************************************** Print checkig module  SimpleDS 
 
 
- [PYTHON CODE] :   SimpleDS =   <module 'SimpleDS' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/./generated_files/SimpleDS.py'>
+ [PYTHON CODE] :   SimpleDS =   <module 'SimpleDS' from '<>/FAST3_Python/v2/./generated_files/SimpleDS.py'>
 
  [PYTHON CODE] :   type(SimpleDS)  =   <class 'module'>
 

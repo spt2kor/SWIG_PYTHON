@@ -31,7 +31,7 @@ print ( nl," r1.classInfo() =  ", r1.classInfo());
 
 #print ( nl," Rectangle.classInfo() =  ", Rectangle.classInfo());
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/python/inheritance1.py", line 31, in <module>
+#  File "<>/FAST3_Python/v2/python/inheritance1.py", line 31, in <module>
 #    print ( nl," Rectangle.classInfo() =  ", Rectangle.classInfo());
 #                                             ^^^^^^^^^
 #NameError: name 'Rectangle' is not defined
@@ -53,7 +53,7 @@ print ( nl, "******************************************** calling non-virtual fu
 #r1.privateFunc();
 
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/python/inheritance1.py", line 44, in <module>
+#  File "<>/FAST3_Python/v2/python/inheritance1.py", line 44, in <module>
 #    r1.privateFunc();
 #    ^^^^^^^^^^^^^^
 #AttributeError: 'Rectangle' object has no attribute 'privateFunc'
@@ -64,7 +64,7 @@ print ( nl, "******************************************** calling non-virtual fu
 #r1.protctedFunc();
 
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/python/inheritance1.py", line 55, in <module>
+#  File "<>/FAST3_Python/v2/python/inheritance1.py", line 55, in <module>
 #    r1.protctedFunc();
 #    ^^^^^^^^^^^^^^^
 #AttributeError: 'Rectangle' object has no attribute 'protctedFunc'

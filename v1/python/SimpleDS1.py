@@ -51,7 +51,7 @@ print ( nl, "******************************************** Print checkig module  
 
 #print ( nl," _SimpleDS.Rectangle =  ", _SimpleDS.Rectangle);
 '''        Traceback (most recent call last):
-        File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1/python/ds1.py", line 49, in <module>
+        File "<>/FAST3_Python/v1/python/ds1.py", line 49, in <module>
         print ( nl," _SimpleDS.Rectangle =  ", _SimpleDS.Rectangle);
                                                 ^^^^^^^^^^^^^^^^^^^
         AttributeError: module '_SimpleDS' has no attribute 'Rectangle'. Did you mean: 'new_Rectangle'?

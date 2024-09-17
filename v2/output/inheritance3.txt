@@ -9,7 +9,7 @@ python python/inheritance3.py
  [PYTHON CODE] :  ******************************************** Print checkig module  INHRT 
 
 
- [PYTHON CODE] :   INHRT =   <module 'INHRT' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/./generated_files/INHRT.py'>
+ [PYTHON CODE] :   INHRT =   <module 'INHRT' from '<>/FAST3_Python/v2/./generated_files/INHRT.py'>
 
  [PYTHON CODE] :   type(INHRT)  =   <class 'module'>
 

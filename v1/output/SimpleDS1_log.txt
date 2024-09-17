@@ -10,9 +10,7 @@ g++ -shared generated_files/obj/SimpleDS.o generated_files/obj/SimpleDS_wrap.o -
 echo "its FAST3 Python v1"
 its FAST3 Python v1
 python python/SimpleDS1.py
-/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1/python
-/opt/python/3.11/linux/pyperl/python/lib/python3.10/site-packages
-/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1
+
 /opt/python/3.11/linux/RHEL70/lib/python311.zip
 /opt/python/3.11/linux/RHEL70/lib/python3.11
 /opt/python/3.11/linux/RHEL70/lib/python3.11/lib-dynload
@@ -21,8 +19,7 @@ python python/SimpleDS1.py
 ./perl/
 [PYTHON CODE] :   Testing Basic Python Data Structures 
 [PYTHON CODE] :  ******************************************** Print checkig module  _SimpleDS
-[PYTHON CODE] :   _SimpleDS =   <module '_SimpleDS' from '/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v1/./generated_files/_SimpleDS.so'>
-[PYTHON CODE] :   type(_SimpleDS)  =   <class 'module'>
+[PYTHON CODE] :   _SimpleDS =   <module '_SimpleDS' from [PYTHON CODE] :   type(_SimpleDS)  =   <class 'module'>
 [PYTHON CODE] :   dir(_SimpleDS)  =   ['RED', 'Rectangle_area', 'Rectangle_classInfo', 'Rectangle_clone', 'Rectangle_show', 'Rectangle_swiginit', 'Rectangle_swigregister', 'SWIG_PyInstanceMethod_New', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'calculateArea', 'cvar', 'delete_Rectangle', 'new_Rectangle']
 [PYTHON CODE] :  ******************************************** Print Macro _SimpleDS.RED
 [PYTHON CODE] :   _SimpleDS.RED =   16711680 , type( _SimpleDS.RED ) =   <class 'int'>

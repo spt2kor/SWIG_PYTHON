@@ -1,12 +1,7 @@
 ///////////////////////////////////
-copied from:  https://bitbucket.vih.infineon.com/projects/DFFA/repos/flow_arch_sandbox/browse/SWIG_tests/README?at=f%2Ffast2_v1
+
 # Commands to generate the perl module
 
-module unload swig
-module load swig/4.0.1
-
-module unload gcc
-module load gcc/10.3.0
 
 cd src
 swig -c++ -perl TechView.i
@@ -287,14 +282,6 @@ http://web.mit.edu/ghudson/trac/src/swig-1.3.25/Doc/Manual/Warnings.html
 
 FINAL COMPILATION STEPS
 
-cmgit -r camino;   
-cd /home/relman.ivcs/rajput/flow_arch_sandbox/FAST2/v1
-
-module unload swig
-module load swig/4.0.1
-
-module unload gcc
-module load gcc/10.3.0
 
 swig -c++ -perl -outdir generated_files -o generated_files/SimpleDS_wrap.cpp swig/SimpleDS.i
 

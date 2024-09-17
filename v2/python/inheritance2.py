@@ -50,7 +50,7 @@ del g1_c;
 
 #print ( nl," g1_c =  ", g1_c);
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/python/inheritance2.py", line 45, in <module>
+#  File "<>/FAST3_Python/v2/python/inheritance2.py", line 45, in <module>
 #    print ( nl," g1_c =  ", g1_c);
 #                            ^^^^
 #NameError: name 'g1_c' is not defined. Did you mean: 'g1_p'?

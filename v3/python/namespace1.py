@@ -23,7 +23,7 @@ print ( nl, "******************************************** global Perl5ToCpp.Math
 
 #print ( nl," Perl5ToCpp.Math.add(2,3) =  ", Perl5ToCpp.Math.add(2,3));
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v3/python/namespace1.py", line 24, in <module>
+#  File "<>/FAST3_Python/v3/python/namespace1.py", line 24, in <module>
 #    print ( nl," Perl5ToCpp.Math.add(2,3) =  ", Perl5ToCpp.Math.add(2,3));
 #                                                ^^^^^^^^^^^^^^^
 #AttributeError: module 'Perl5ToCpp' has no attribute 'Math'

@@ -284,7 +284,7 @@ g++ -c -Wno-literal-suffix -D_REENTRANT -D_GNU_SOURCE -DPERL_USE_SAFE_PUTENV -fn
 FINAL COMPILATION STEPS
 
 cmgit -r camino;   
-cd /home/relman.ivcs/rajput/flow_arch_sandbox/FAST2/v1
+cd <>/FAST2/v1
 
 module unload swig
 module load swig/4.0.1

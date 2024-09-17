@@ -34,7 +34,7 @@ print ( nl, "******************************************** Print using r1.pri;" )
 
 #print ( nl," r1.pri =  ", r1.pri);
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/python/struct1.py", line 35, in <module>
+#  File "<>/FAST3_Python/v2/python/struct1.py", line 35, in <module>
 #   print ( nl," r1.pri =  ", r1.pri);
 #                              ^^^^^^
 #AttributeError: 'Algo' object has no attribute 'pri'
@@ -43,7 +43,7 @@ print ( nl, "******************************************** Print using r1.pro;" )
 
 #print ( nl," r1.pro =  ", r1.pro);
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/python/struct1.py", line 44, in <module>
+#  File "<>/FAST3_Python/v2/python/struct1.py", line 44, in <module>
 #    print ( nl," r1.pro =  ", r1.pro);
 #                              ^^^^^^
 #AttributeError: 'Algo' object has no attribute 'pro'
@@ -65,7 +65,7 @@ print ( nl, "******************************************** Print using r1.print()
 
 #print ( nl," r1.print() =  ", r1.print());
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/python/struct1.py", line 64, in <module>
+#  File "<>/FAST3_Python/v2/python/struct1.py", line 64, in <module>
 #    print ( nl," r1.print() =  ", r1.print());
 #                                  ^^^^^^^^
 #AttributeError: 'Algo' object has no attribute 'print'. Did you mean: '_print'?

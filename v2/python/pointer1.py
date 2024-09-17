@@ -26,7 +26,7 @@ print ( nl, "******************************************** Print Macro SimpleDS.A
 
 #print ( nl," SimpleDS.ADD =  ", SimpleDS.ADD , ", type( SimpleDS.ADD ) =  ", type(SimpleDS.ADD ) );
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v2/python/pointer1.py", line 27, in <module>
+#  File "<>/FAST3_Python/v2/python/pointer1.py", line 27, in <module>
 #    print ( nl," SimpleDS.ADD =  ", SimpleDS.ADD , ", type( SimpleDS.ADD ) =  ", type(SimpleDS.ADD ) );
 #                                    ^^^^^^^^^^^^
 #AttributeError: module 'SimpleDS' has no attribute 'ADD'

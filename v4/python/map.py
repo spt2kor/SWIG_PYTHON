@@ -80,10 +80,10 @@ print ( nl, "******************************************** std::vector<double> ha
 v3 = STDLib.half( v2);
 #Print(v3);
 #Traceback (most recent call last):
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v4/python/vector.py", line 64, in <module>
+#  File "<>/FAST3_Python/v4/python/vector.py", line 64, in <module>
 #    Print(v3);
 #    ^^^^^^^^^
-#  File "/home/relman.ivcs/rajput/flow_arch_sandbox/FAST3_Python/v4/python/vector.py", line 16, in Print
+#  File "<>/FAST3_Python/v4/python/vector.py", line 16, in Print
 #    while(i < v.size() ):
 #              ^^^^^^
 #AttributeError: 'tuple' object has no attribute 'size'
