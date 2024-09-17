@@ -5518,7 +5518,7 @@ SWIG_InitializeModule(void *clientdata) {
   /* Try and load any already created modules */
   module_head = SWIG_GetModule(clientdata);
   if (!module_head) {
-    /* This is the first module loaded for this interpreter */
+    /* This is the first <>ed for this interpreter */
     /* so set the swig module into the interpreter */
     SWIG_SetModule(clientdata, &swig_module);
   } else {

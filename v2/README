@@ -4,20 +4,20 @@
 #FINAL COMPILATION STEPS
 ==================================================================================
 ==================================================================================
-module load cmgit;
+<> cmgit;
 cmgit -r camino;   
 cd <>/FAST3_Python/v1
 
-module unload swig
-module load swig/4.0.1
+<> swig
+<> swig/4.0.1
 
-module unload gcc
-module load gcc/10.3.0
+<> gcc
+<> gcc/10.3.0
 
-module unload python
-module load python/3.11
+<> python
+<> python/3.11
 
-module load vscode;
+<> vscode;
 code ./../FAST3_Python.code-workspace &
 
 
